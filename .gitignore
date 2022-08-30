@@ -1,3 +1,7 @@
+# output folders
+**/build/
+**/.gradle/
+
 # Compiled class file
 *.class
 
