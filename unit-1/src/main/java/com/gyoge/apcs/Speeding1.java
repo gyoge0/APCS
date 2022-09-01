@@ -1,3 +1,5 @@
+package com.gyoge.apcs;
+
 public class Speeding1 {
 
     public static int caughtSpeeding(int speed, boolean isBirthday) {

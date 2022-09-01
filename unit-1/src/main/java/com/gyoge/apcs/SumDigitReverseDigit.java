@@ -1,3 +1,5 @@
+package com.gyoge.apcs;
+
 import java.util.Arrays;
 
 public class SumDigitReverseDigit {
