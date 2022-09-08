@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 public class Speeding1 {
@@ -7,5 +8,4 @@ public class Speeding1 {
         if (isBirthday && speed > 65 || !isBirthday && speed > 60) return 1;
         return 0;
     }
-
 }
