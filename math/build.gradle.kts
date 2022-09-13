@@ -1,3 +1,3 @@
 plugins {
-    id("com.gyoge.apcs.plugins.apcs-unit")
+    id("com.gyoge.apcs.plugins.apcs-project")
 }
