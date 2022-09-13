@@ -20,7 +20,7 @@ repositories {
 
 tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.languageVersion = properties("jvmTarget").toString()
+        kotlinOptions.languageVersion = properties("jvmTarget")
     }
     withType<com.diffplug.gradle.spotless.SpotlessCheck> {
         dependsOn("spotlessApply")

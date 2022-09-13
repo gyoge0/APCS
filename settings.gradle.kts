@@ -1,2 +1,4 @@
 includeBuild("plugins")
-include("unit-1")
+include("dog-class")
+include("math")
+include("whiteboarding")

@@ -1,6 +1,5 @@
 // Yogesh Thambidurai APCS 2022-23
-package com.gyoge.apcs
-
+import com.gyoge.apcs.Speeding1
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
