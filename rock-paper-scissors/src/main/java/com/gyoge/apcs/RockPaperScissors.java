@@ -2,6 +2,7 @@
 package com.gyoge.apcs;
 
 import com.gyoge.apcs.GamePlayer.Choice;
+import com.gyoge.apcs.markov.MarkovPlayer;
 import java.util.Scanner;
 
 public class RockPaperScissors {
@@ -26,6 +27,18 @@ public class RockPaperScissors {
 
             GamePlayer winner = compareChoices(player1, player2);
             printWinner(winner);
+
+            if (winner == null) {
+                player1.draw();
+                player2.draw();
+            } else if (winner == player1) {
+                player1.win();
+                player2.lose();
+            } else if (winner == player2) {
+                player2.win();
+                player1.lose();
+            } else throw new IllegalArgumentException("No winner");
+
             printRecord(player1);
             printRecord(player2);
         }
@@ -40,15 +53,14 @@ public class RockPaperScissors {
      * @return the number of wins to win the game
      */
     static int getWinningScore() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("How many wins to win the game? ");
-            int winningScore = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("How many wins to win the game? ");
+        int winningScore = scanner.nextInt();
 
-            if (winningScore <= 0) {
-                return DEFAULT_WINNING_SCORE;
-            }
-            return winningScore;
+        if (winningScore <= 0) {
+            return DEFAULT_WINNING_SCORE;
         }
+        return winningScore;
     }
 
     /**
@@ -57,7 +69,9 @@ public class RockPaperScissors {
      * @param player the player of the game
      */
     private static void printRecord(GamePlayer player) {
-        System.out.printf("%s has %d wins%n", player.getName(), player.getWins());
+        System.out.printf(
+                "%s has %d wins, %d losses, and %d draws.%n",
+                player.getName(), player.getWins(), player.getLosses(), player.getDraws());
     }
 
     /**
@@ -114,12 +128,15 @@ public class RockPaperScissors {
     static GamePlayer choosePlayerType() {
 
         System.out.println();
-        System.out.println(
+        System.out.print(
                 """
             Choose a type of player:
             \t1. Human
             \t2. Computer
             \t3. Rock Lover
+            \t4. Paper Lover
+            \t5. Scissors Lover
+            \t6. Markov Player
             Make your choice:\s""");
 
         Scanner input = new Scanner(System.in);
@@ -132,7 +149,10 @@ public class RockPaperScissors {
                 yield new HumanPlayer(name);
             }
             case 2 -> new ComputerPlayer("Computer");
-            case 3 -> new RockLoverPlayer("Rock Lover");
+            case 3 -> new RockLoverPlayer("Bart Simpson");
+            case 4 -> new PaperLoverPlayer("Lisa Simpson");
+            case 5 -> new ScissorsLoverPlayer("Maggie Simpson");
+            case 6 -> new MarkovPlayer("Andrey Markov");
             default -> throw new IllegalArgumentException("Invalid player type");
         };
     }
