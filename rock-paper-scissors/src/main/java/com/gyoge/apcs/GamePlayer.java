@@ -7,6 +7,8 @@ public abstract class GamePlayer {
     private final String name;
     private Choice choice;
     private int wins;
+    private int draws;
+    private int losses;
 
     public GamePlayer(String name) {
         this.name = name;
@@ -22,11 +24,23 @@ public abstract class GamePlayer {
                 + choice
                 + ", wins="
                 + wins
+                + ", draws="
+                + draws
+                + ", losses="
+                + losses
                 + '}';
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public int getLosses() {
+        return losses;
     }
 
     public int getWins() {
@@ -54,6 +68,16 @@ public abstract class GamePlayer {
     /** Increment {@link GamePlayer#wins} */
     public void win() {
         wins++;
+    }
+
+    /** Increment {@link GamePlayer#draws} */
+    public void draw() {
+        draws++;
+    }
+
+    /** Increment {@link GamePlayer#losses} */
+    public void lose() {
+        losses++;
     }
 
     /** All possible choices on a move */
