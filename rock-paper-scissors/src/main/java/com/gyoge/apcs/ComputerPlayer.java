@@ -8,5 +8,8 @@ public class ComputerPlayer extends GamePlayer {
     }
 
     @Override
-    public void makeChoice() {}
+    public void makeChoice() {
+        Choice[] values = Choice.values();
+        setChoice(values[(int) (Math.random() * values.length)]);
+    }
 }
