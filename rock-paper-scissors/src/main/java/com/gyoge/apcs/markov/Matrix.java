@@ -1,7 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs.markov;
 
-import com.gyoge.apcs.GamePlayer.Choice;
+import com.gyoge.apcs.Choice;
 import java.util.ArrayDeque;
 import java.util.Queue;
 

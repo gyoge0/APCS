@@ -1,6 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs.markov;
 
+import com.gyoge.apcs.Choice;
 import com.gyoge.apcs.GamePlayer;
 
 public class MarkovPlayer extends GamePlayer {
