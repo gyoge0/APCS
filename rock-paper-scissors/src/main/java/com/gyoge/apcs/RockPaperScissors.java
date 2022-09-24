@@ -1,7 +1,6 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
-import com.gyoge.apcs.GamePlayer.Choice;
 import com.gyoge.apcs.markov.MarkovPlayer;
 import java.util.Scanner;
 
@@ -130,14 +129,14 @@ public class RockPaperScissors {
         System.out.println();
         System.out.print(
                 """
-            Choose a type of player:
-            \t1. Human
-            \t2. Computer
-            \t3. Rock Lover
-            \t4. Paper Lover
-            \t5. Scissors Lover
-            \t6. Markov Player
-            Make your choice:\s""");
+                Choose a type of player:
+                \t1. Human
+                \t2. Computer
+                \t3. Rock Lover
+                \t4. Paper Lover
+                \t5. Scissors Lover
+                \t6. Markov Player
+                Make your choice: """);
 
         Scanner input = new Scanner(System.in);
         int type = Integer.parseInt(input.nextLine());

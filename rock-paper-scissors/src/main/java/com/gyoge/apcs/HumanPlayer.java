@@ -16,11 +16,11 @@ public class HumanPlayer extends GamePlayer {
         while (choice == null) {
             System.out.printf(
                     """
-                Enter your choice %s:
-                \t1. Rock
-                \t2. Paper
-                \t3. Scissors
-                Make your choice:\s""",
+                    Enter your choice %s:
+                    \t1. Rock
+                    \t2. Paper
+                    \t3. Scissors
+                    Make your choice: """,
                     this.getName());
 
             choice =

@@ -13,8 +13,8 @@ class RockPaperScissorsTest : IOTest() {
     @Nested
     inner class CompareChoicesTest {
         @Test fun `rock vs rock`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.ROCK }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.ROCK }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.ROCK }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 null,
                 compareChoices(p1, p2)
@@ -22,8 +22,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `rock vs paper`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.ROCK }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.PAPER }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.ROCK }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 p2,
                 compareChoices(p1, p2)
@@ -31,8 +31,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `rock vs scissors`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.ROCK }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.SCISSORS }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.ROCK }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 p1,
                 compareChoices(p1, p2)
@@ -40,8 +40,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `paper vs paper`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.PAPER }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.PAPER }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.PAPER }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 null,
                 compareChoices(p1, p2)
@@ -49,8 +49,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `paper vs rock`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.PAPER }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.ROCK }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.PAPER }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 p1,
                 compareChoices(p1, p2)
@@ -58,8 +58,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `paper vs scissors`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.PAPER }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.SCISSORS }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.PAPER }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 p2,
                 compareChoices(p1, p2)
@@ -67,8 +67,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `scissors vs scissors`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.SCISSORS }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.SCISSORS }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.SCISSORS }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 null,
                 compareChoices(p1, p2)
@@ -76,8 +76,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `scissors vs rock`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.SCISSORS }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.ROCK }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.SCISSORS }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 p2,
                 compareChoices(p1, p2)
@@ -85,8 +85,8 @@ class RockPaperScissorsTest : IOTest() {
         }
 
         @Test fun `scissors vs paper`() {
-            val p1 = ComputerPlayer("p1").apply { choice = GamePlayer.Choice.SCISSORS }
-            val p2 = ComputerPlayer("p2").apply { choice = GamePlayer.Choice.PAPER }
+            val p1 = ComputerPlayer("p1").apply { choice = Choice.SCISSORS }
+            val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 p1,
                 compareChoices(p1, p2)
@@ -96,8 +96,8 @@ class RockPaperScissorsTest : IOTest() {
 
     @Test fun `show rock vs scissors`() {
         showChoices(
-            ComputerPlayer("Player 1").apply { choice = GamePlayer.Choice.ROCK },
-            ComputerPlayer("Player 2").apply { choice = GamePlayer.Choice.SCISSORS }
+            ComputerPlayer("Player 1").apply { choice = Choice.ROCK },
+            ComputerPlayer("Player 2").apply { choice = Choice.SCISSORS }
         )
         assertOutput("Player 1: Rock   vs.  Player 2: Scissors")
     }
