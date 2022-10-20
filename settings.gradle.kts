@@ -1,7 +1,7 @@
 includeBuild("plugins")
 includeBuild("common")
 
-include("dog-class")
+include("classes")
 include("math")
 include("whiteboarding")
 include("rock-paper-scissors")
