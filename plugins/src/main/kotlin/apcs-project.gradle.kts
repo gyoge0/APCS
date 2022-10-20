@@ -45,6 +45,7 @@ spotless {
     java {
         importOrder("com.gyoge.apcs", "com.gyoge", "java", "javax", "")
         removeUnusedImports()
+        toggleOffOn()
 
         licenseHeader("// Yogesh Thambidurai APCS 2022-23")
 
@@ -53,5 +54,6 @@ spotless {
     kotlin {
         ktlint()
         licenseHeader("// Yogesh Thambidurai APCS 2022-23")
+        toggleOffOn()
     }
 }
