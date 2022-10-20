@@ -8,7 +8,7 @@ public class DriverHeatMap {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Heat Map");
-        frame.setSize(1000, 1000);
+        frame.setSize(HeatMapPanel.CANVAS_WIDTH, HeatMapPanel.CANVAS_HEIGHT);
         frame.setLocation(0, 0);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new HeatMapPanel());

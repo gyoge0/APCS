@@ -20,8 +20,10 @@ public class HeatMapPanel extends JPanel implements MouseListener {
     public static final int MAX_TEMP = 150;
     public static final int MIN_TEMP = -150;
     public static final int WIDTH = 100;
+    public static final int CANVAS_WIDTH = WIDTH * BLOCK_WIDTH;
     public static final int HEIGHT = 100;
-    private static final Color BACKGROUND = new Color(204, 204, 204);
+    public static final int CANVAS_HEIGHT = HEIGHT * BLOCK_HEIGHT;
+    public static final Color BACKGROUND = new Color(204, 204, 204);
     private final double[][] tempGrid = new double[HEIGHT][WIDTH];
 
     private int mousedRow = -1;
@@ -35,12 +37,6 @@ public class HeatMapPanel extends JPanel implements MouseListener {
                 // r, c is top down
                 tempGrid[c][r] = c < tempGrid[r].length / 2 ? MIN_TEMP : MAX_TEMP;
             }
-        }
-
-        // test your temperature to color conversions, see table in the lab document
-        for (int temp = MIN_TEMP; temp < MAX_TEMP; temp += 10) {
-            System.out.printf(
-                    "%5d: %4d, %4d, %4d\n", temp, getRed(temp), getGreen(temp), getBlue(temp));
         }
 
         // timer
@@ -76,7 +72,7 @@ public class HeatMapPanel extends JPanel implements MouseListener {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Heat Map");
-        frame.setSize(1400, 1005);
+        frame.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
         frame.setLocation(0, 0);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new HeatMapPanel());
@@ -104,13 +100,15 @@ public class HeatMapPanel extends JPanel implements MouseListener {
 
         for (int r = 0; r < tempGrid.length; r++) {
             for (int c = 0; c < tempGrid[r].length; c++) {
+                double tVal;
+
                 if (r == mousedRow && c == mousedCol) {
-                    continue;
+                    tVal = mousedTemp;
+                } else {
+                    tVal = getAvg(r, c);
+                    tempGrid[r][c] = tVal;
                 }
 
-                double tVal = getAvg(r, c);
-
-                tempGrid[r][c] = tVal;
                 g.setColor(new Color(getRed(tVal), getGreen(tVal), getBlue(tVal)));
 
                 // (x,y) is the upper left hand corner of the rectangle
@@ -149,8 +147,8 @@ public class HeatMapPanel extends JPanel implements MouseListener {
 
     /** Displays temp info of both sides */
     private void drawInfo(Graphics g) {
-        double leftAvg = tempGrid[tempGrid.length / 2][0];
-        double rightAvg = tempGrid[tempGrid.length / 2][tempGrid[0].length - 1];
+        double leftAvg = tempGrid[0][tempGrid.length / 2];
+        double rightAvg = tempGrid[tempGrid[0].length - 1][tempGrid.length / 2];
         String avgLeftTempStr = String.format("%7.2f", leftAvg);
         String avgRightTempStr = String.format("%7.2f", rightAvg);
 
@@ -158,8 +156,8 @@ public class HeatMapPanel extends JPanel implements MouseListener {
         g.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 40));
         g.drawString("Left Side Temp", 10, 60);
         g.drawString(avgLeftTempStr, 100, 120);
-        g.drawString("Right Side Temp", BLOCK_WIDTH * WIDTH - 370, 60);
-        g.drawString(avgRightTempStr, BLOCK_WIDTH * WIDTH - 280, 120);
+        g.drawString("Right Side Temp", CANVAS_WIDTH - 370, 60);
+        g.drawString(avgRightTempStr, CANVAS_HEIGHT - 280, 120);
     }
 
     @Override
