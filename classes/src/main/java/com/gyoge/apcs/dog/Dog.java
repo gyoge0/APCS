@@ -1,5 +1,5 @@
 // Yogesh Thambidurai APCS 2022-23
-package com.gyoge.apcs;
+package com.gyoge.apcs.dog;
 
 @SuppressWarnings("unused")
 public class Dog {
@@ -7,11 +7,6 @@ public class Dog {
     private final String name;
     private final String breed;
     private final double weight;
-
-    @Override
-    public String toString() {
-        return String.format("Dog{name='%s', breed='%s', weight=%s}", name, breed, weight);
-    }
 
     public Dog(String name, double weight) {
         this.name = name;
@@ -23,6 +18,11 @@ public class Dog {
         this.name = name;
         this.breed = breed;
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Dog{name='%s', breed='%s', weight=%s}", name, breed, weight);
     }
 
     public String getName() {

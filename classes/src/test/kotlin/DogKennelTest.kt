@@ -1,6 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs
 
+import com.gyoge.apcs.dog.DogKennel
 import org.junit.jupiter.api.Test
 
 class DogKennelTest : IOTest() {
