@@ -1,5 +1,5 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
-
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -10,10 +10,10 @@ public class ArrayBasicsStrings {
     /**
      * check if any array value is equal to a given value
      *
-     * @param ss     : an array of Strings with positive length
+     * @param ss : an array of Strings with positive length
      * @param target : a string
      * @return : an integer representing any index k such that ss[k] is equal to target, or -1 if
-     * there is no such index
+     *     there is no such index
      */
     public static int search(String[] ss, String target) {
         for (int i = ss.length - 1; i >= 0; i--) {
@@ -72,7 +72,7 @@ public class ArrayBasicsStrings {
 
     /**
      * count the number of consecutive equal elements, i.e. the number of values that are equal to
-     * the previous value.  Note: the 0th element has no previous element
+     * the previous value. Note: the 0th element has no previous element
      *
      * @param ss : an array of Strings with positive length
      * @return : int representing the number of pairs as described above
@@ -101,49 +101,87 @@ public class ArrayBasicsStrings {
     public static void main(String[] args) {
 
         // Search
-        String[] srch = {"Lorem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt",
-            "dolor"};
-        System.out.println(ArrayBasicsStrings.search(srch, "dolor")); //should be 7
-        System.out.println(ArrayBasicsStrings.search(srch, "fish")); //should be -1
+        String[] srch = {
+            "Lorem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt", "dolor"
+        };
+        System.out.println(ArrayBasicsStrings.search(srch, "dolor")); // should be 7
+        System.out.println(ArrayBasicsStrings.search(srch, "fish")); // should be -1
 
         // AnyStartCaps
-        String[] anyStrtCp = {"Lorem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt",
-            "Dolor"};
-        String[] anyStrtCpNo = {"orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt",
-            "dolor"};
+        String[] anyStrtCp = {
+            "Lorem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt", "Dolor"
+        };
+        String[] anyStrtCpNo = {
+            "orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt", "dolor"
+        };
         System.out.println(ArrayBasicsStrings.anyStartCaps(anyStrtCp)); // should be true
         System.out.println(ArrayBasicsStrings.anyStartCaps(anyStrtCpNo)); // should be false
 
         // AllStartCaps
-        String[] allStrtCp = {"Lorem", "Ipsum", "Dolor", "Sit", "Amet.", "Et itaque", "Incidunt",
-            "Dolor"};
-        String[] allStrtCpNo = {"orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt",
-            "dolor"};
+        String[] allStrtCp = {
+            "Lorem", "Ipsum", "Dolor", "Sit", "Amet.", "Et itaque", "Incidunt", "Dolor"
+        };
+        String[] allStrtCpNo = {
+            "orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "incidunt", "dolor"
+        };
         System.out.println(ArrayBasicsStrings.allStartCaps(allStrtCp)); // should be true
         System.out.println(ArrayBasicsStrings.allStartCaps(allStrtCpNo)); // should be false
 
         // CountStartCaps
-        String[] cntStrtCp = {"Lorem", "Ipsum", "Dolor", "Sit", "Amet.", "Et itaque", "Incidunt",
-            "Dolor"};
-        String[] cntStrtCpNo = {"orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "Incidunt",
-            "dolor"};
+        String[] cntStrtCp = {
+            "Lorem", "Ipsum", "Dolor", "Sit", "Amet.", "Et itaque", "Incidunt", "Dolor"
+        };
+        String[] cntStrtCpNo = {
+            "orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "Incidunt", "dolor"
+        };
         System.out.println(ArrayBasicsStrings.countStartCaps(cntStrtCp)); // should be 8
         System.out.println(ArrayBasicsStrings.countStartCaps(cntStrtCpNo)); // should be 1
 
         // CountPairs
-        String[] cntPairCp = {"Lorem", "Lorem", "Ipsum", "Ipsum", "Ipsum", "Dolor", "Sit", "Amet.",
-            "Et itaque", "Incidunt", "Dolor", "Lorem", "Ipsum", "Dolor", "Sit", "Amet.",
-            "Et itaque", "Incidunt", "Dolor"};
+        String[] cntPairCp = {
+            "Lorem",
+            "Lorem",
+            "Ipsum",
+            "Ipsum",
+            "Ipsum",
+            "Dolor",
+            "Sit",
+            "Amet.",
+            "Et itaque",
+            "Incidunt",
+            "Dolor",
+            "Lorem",
+            "Ipsum",
+            "Dolor",
+            "Sit",
+            "Amet.",
+            "Et itaque",
+            "Incidunt",
+            "Dolor"
+        };
         String[] cntPairCpOne = {"orem", "dolor", "dolor", "dolor", "dolor", "dolor", "dolor"};
-        String[] cntPairCpNo = {"orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "Incidunt",
-            "dolor"};
+        String[] cntPairCpNo = {
+            "orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "Incidunt", "dolor"
+        };
         System.out.println(ArrayBasicsStrings.countPairs(cntPairCp)); // should be 3
         System.out.println(ArrayBasicsStrings.countPairs(cntPairCpOne)); // should be 5
         System.out.println(ArrayBasicsStrings.countPairs(cntPairCpNo)); // should be 0
 
         // hasNoDuplicates
-        String[] hasNDup1 = {"Lorem", "Lorem", "Ipsum", "Ipsum", "Ipsum", "Dolor", "Sit", "Amet.",
-            "Et itaque", "Incidunt", "Dolor", "Lorem"};
+        String[] hasNDup1 = {
+            "Lorem",
+            "Lorem",
+            "Ipsum",
+            "Ipsum",
+            "Ipsum",
+            "Dolor",
+            "Sit",
+            "Amet.",
+            "Et itaque",
+            "Incidunt",
+            "Dolor",
+            "Lorem"
+        };
         String[] hasNDup2 = {"orem", "dolor", "dolor", "dolor", "dolor", "dolor", "dolor"};
         String[] hasNDup3 = {"orem", "ipsum", "dolor", "sit", "amet.", " Et itaque", "Incidunt"};
         System.out.println(ArrayBasicsStrings.hasNoDuplicates(hasNDup1)); // should be false
