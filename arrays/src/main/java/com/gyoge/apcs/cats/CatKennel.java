@@ -27,7 +27,7 @@ public class CatKennel {
     }
 
     public static Cat[] fillCatKennel(
-        String[] names, String[] types, double[] weights, int numCats) {
+            String[] names, String[] types, double[] weights, int numCats) {
         Cat[] kennel = new Cat[numCats];
         for (int i = 0; i < types.length; i++) {
             kennel[i] = new Cat(names[i], weights[i], types[i]);

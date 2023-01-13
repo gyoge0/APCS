@@ -102,10 +102,10 @@ public class Strings {
     /**
      * check if any array value is equal to a given value
      *
-     * @param ss     an array of Strings with positive length
+     * @param ss an array of Strings with positive length
      * @param target : a string
      * @return an integer representing any index k such that ss[k] is equal to target, or -1 if
-     * there is no such index
+     *     there is no such index
      */
     public static int search(String[] ss, String target) {
         for (int i = ss.length - 1; i >= 0; i--) {

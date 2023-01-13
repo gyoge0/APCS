@@ -9,7 +9,7 @@ public class RemoveEveryOther {
     public static void main(String[] args) {
         @SuppressWarnings("SpellCheckingInspection")
         ArrayList<String> testList =
-            new ArrayList<>(Arrays.asList("hi", "yo", "sup", "yolo", "boop"));
+                new ArrayList<>(Arrays.asList("hi", "yo", "sup", "yolo", "boop"));
 
         removeEveryOther(testList);
 

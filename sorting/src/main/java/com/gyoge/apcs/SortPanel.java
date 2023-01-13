@@ -59,14 +59,14 @@ public abstract class SortPanel extends JPanel {
     public void updateArray(final int[] anArray) {
         try {
             SwingUtilities.invokeAndWait(
-                () -> {
-                    drawArray(anArray);
-                    try {
-                        Thread.sleep(DELAY_LENGTH);
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt();
-                    }
-                });
+                    () -> {
+                        drawArray(anArray);
+                        try {
+                            Thread.sleep(DELAY_LENGTH);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                    });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,16 +94,16 @@ public abstract class SortPanel extends JPanel {
 
             // draw rectangle
             graphics.fillRect(
-                (SCREEN_SIZE / anArray.length) * i,
-                SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]),
-                (SCREEN_SIZE / anArray.length) / 2,
-                (((SCREEN_SIZE - 100) / SCALE) * anArray[i]));
+                    (SCREEN_SIZE / anArray.length) * i,
+                    SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]),
+                    (SCREEN_SIZE / anArray.length) / 2,
+                    (((SCREEN_SIZE - 100) / SCALE) * anArray[i]));
 
             // draw number on rectangle
             graphics.drawString(
-                anArray[i] + "",
-                (SCREEN_SIZE / anArray.length) * i,
-                SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]) - 15);
+                    anArray[i] + "",
+                    (SCREEN_SIZE / anArray.length) * i,
+                    SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]) - 15);
         }
 
         repaint();

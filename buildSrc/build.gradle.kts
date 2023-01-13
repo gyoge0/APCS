@@ -20,7 +20,7 @@ repositories {
 
 kotlin {
     jvmToolchain {
-        this.languageVersion.set(JavaLanguageVersion.of(property("jvmTarget")))
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(property("jvmTarget")))
     }
 }
 

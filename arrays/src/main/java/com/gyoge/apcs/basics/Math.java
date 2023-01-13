@@ -23,7 +23,7 @@ public class Math {
      *
      * @param ns an array of ints with positive length
      * @return a double equal to the average of all values in the array ns, or 0.0 if ns has length
-     * 0
+     *     0
      */
     public static double average(int[] ns) {
         return ((double) sum(ns)) / ns.length;
