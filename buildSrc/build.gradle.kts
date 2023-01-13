@@ -1,4 +1,4 @@
-fun properties(key: String) = project.findProperty(key).toString()
+fun property(key: String) = project.findProperty(key).toString()
 
 @Suppress("SpellCheckingInspection")
 plugins {
@@ -9,7 +9,7 @@ plugins {
 dependencies {
     @Suppress("SpellCheckingInspection")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:6.9.1")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${property("kotlinVersion")}")
 }
 
 group = "com.gyoge.apcs"
@@ -18,10 +18,13 @@ repositories {
     mavenCentral()
 }
 
-tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.languageVersion = properties("jvmTarget")
+kotlin {
+    jvmToolchain {
+        this.languageVersion.set(JavaLanguageVersion.of(property("jvmTarget")))
     }
+}
+
+tasks {
     withType<com.diffplug.gradle.spotless.SpotlessCheck> {
         dependsOn("spotlessApply")
     }

@@ -1,6 +1,6 @@
 package com.gyoge.apcs.plugins
 
-fun properties(key: String) = project.findProperty(key).toString()
+fun property(key: String) = project.findProperty(key).toString()
 
 @Suppress("SpellCheckingInspection")
 plugins {
@@ -27,17 +27,22 @@ tasks {
     withType<com.diffplug.gradle.spotless.SpotlessCheck> {
         dependsOn("spotlessApply")
     }
+    withType<JavaExec>().configureEach {
+        if (name.endsWith("main()")) {
+            notCompatibleWithConfigurationCache("JavaExec created by IntelliJ")
+        }
+    }
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(properties("jvmTarget")))
+        languageVersion.set(JavaLanguageVersion.of(property("jvmTarget")))
     }
 }
 
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(properties("jvmTarget")))
+        languageVersion.set(JavaLanguageVersion.of(property("jvmTarget")))
     }
 }
 
