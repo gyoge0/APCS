@@ -1,7 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs
 
-import com.gyoge.apcs.ReplaceStr.replacePattern
+import com.gyoge.apcs.ReplacePatterns.replacePattern
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

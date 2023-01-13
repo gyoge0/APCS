@@ -56,7 +56,7 @@ public class PigLatin {
         StringBuilder sb = new StringBuilder(str.length());
 
         // str[0] will always be lower at this point
-        // starting with vowel case
+        // starting with a vowel case
         if (VOWELS.contains(firstLower)) {
             // keep caps even if it starts with caps
             if (startIsCaps) {
@@ -90,6 +90,7 @@ public class PigLatin {
         return "**** INVALID ****";
     }
 
+    @SuppressWarnings("unused")
     public static void part_2_using_piglatenizeFile() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Input Filename (Including .txt)? Example: PigLatin.txt:");
@@ -108,7 +109,7 @@ public class PigLatin {
 
     /******************************
      *  precondition:  filename has .txt
-     *  postcondition:  output a piglatinized .txt file
+     *  postcondition: output a piglatinized .txt file
      *.
      ******************************/
     public static void piglatenizeFile(Scanner infile, String filename) {

@@ -1,7 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
-public class ReplaceStr {
+public class ReplacePatterns {
 
     @SuppressWarnings("StringConcatenationInLoop")
     public static String replacePattern(String str, String findStr, String replaceStr) {
