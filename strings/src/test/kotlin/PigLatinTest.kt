@@ -10,27 +10,27 @@ import kotlin.test.assertEquals
 class PigLatinTest {
     @Test fun `pig to igpay`() = assertEquals(
         "igpay",
-        pig("pig")
+        pig("pig"),
     )
 
     @Test fun `latin to atinlay`() = assertEquals(
         "atinlay",
-        pig("latin")
+        pig("latin"),
     )
 
     @Test fun `this to isthay`() = assertEquals(
         "isthay",
-        pig("this")
+        pig("this"),
     )
 
     @Test fun `strange to angestray`() = assertEquals(
         "angestray",
-        pig("strange")
+        pig("strange"),
     )
 
     @Test fun `invalid test`() = assertEquals(
         "**** INVALID ****",
-        pig("bcdfgh")
+        pig("bcdfgh"),
     )
 
     @Nested
@@ -38,12 +38,12 @@ class PigLatinTest {
 
         @Test fun `question to estionquay`() = assertEquals(
             "estionquay",
-            pig("question")
+            pig("question"),
         )
 
         @Test fun `squeeze to eezesquay`() = assertEquals(
             "eezesquay",
-            pig("squeeze")
+            pig("squeeze"),
         )
     }
 
@@ -51,17 +51,17 @@ class PigLatinTest {
     inner class YCases {
         @Test fun `yes to esyay`() = assertEquals(
             "esyay",
-            pig("yes")
+            pig("yes"),
         )
 
         @Test fun `rhyme to ymerhay`() = assertEquals(
             "ymerhay",
-            pig("rhyme")
+            pig("rhyme"),
         )
 
         @Test fun `try to ytray`() = assertEquals(
             "ytray",
-            pig("try")
+            pig("try"),
         )
     }
 
@@ -69,22 +69,22 @@ class PigLatinTest {
     inner class Capitalization {
         @Test fun `Thomas to Omasthay`() = assertEquals(
             "Omasthay",
-            pig("Thomas")
+            pig("Thomas"),
         )
 
         @Test fun `Jefferson to Effersonjay`() = assertEquals(
             "Effersonjay",
-            pig("Jefferson")
+            pig("Jefferson"),
         )
 
         @Test fun `McDonald to OnaldmcDay`() = assertEquals(
             "OnaldmcDay",
-            pig("McDonald")
+            pig("McDonald"),
         )
 
         @Test fun `McArthur to Arthurmcay`() = assertEquals(
             "Arthurmcay",
-            pig("McArthur")
+            pig("McArthur"),
         )
     }
 
@@ -93,27 +93,27 @@ class PigLatinTest {
     inner class Punctuation {
         @Test fun `What? to Atwhay?`() = assertEquals(
             "Atwhay?",
-            pig("What?")
+            pig("What?"),
         )
 
         @Test fun `Oh! to Ohway!`() = assertEquals(
             "Ohway!",
-            pig("Oh!")
+            pig("Oh!"),
         )
 
         @Test fun `"hello" to "ellohay"`() = assertEquals(
             "ellohay",
-            pig("hello")
+            pig("hello"),
         )
 
         @Test fun `"Hello!!!!" to "Ellohay!!!!"`() = assertEquals(
             "Ellohay!!!!",
-            pig("Hello!!!!")
+            pig("Hello!!!!"),
         )
 
         @Test fun `don't to on'tday`() = assertEquals(
             "on'tday",
-            pig("don't")
+            pig("don't"),
         )
     }
 }

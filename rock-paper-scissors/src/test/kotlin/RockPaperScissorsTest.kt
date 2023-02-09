@@ -17,7 +17,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 null,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -26,7 +26,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 p2,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -35,7 +35,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 p1,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -44,7 +44,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 null,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -53,7 +53,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 p1,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -62,7 +62,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 p2,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -71,7 +71,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.SCISSORS }
             assertEquals(
                 null,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -80,7 +80,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.ROCK }
             assertEquals(
                 p2,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
 
@@ -89,7 +89,7 @@ class RockPaperScissorsTest : IOTest() {
             val p2 = ComputerPlayer("p2").apply { choice = Choice.PAPER }
             assertEquals(
                 p1,
-                compareChoices(p1, p2)
+                compareChoices(p1, p2),
             )
         }
     }
@@ -97,7 +97,7 @@ class RockPaperScissorsTest : IOTest() {
     @Test fun `show rock vs scissors`() {
         showChoices(
             ComputerPlayer("Player 1").apply { choice = Choice.ROCK },
-            ComputerPlayer("Player 2").apply { choice = Choice.SCISSORS }
+            ComputerPlayer("Player 2").apply { choice = Choice.SCISSORS },
         )
         assertOutput("Player 1: Rock   vs.  Player 2: Scissors")
     }
@@ -108,7 +108,7 @@ class RockPaperScissorsTest : IOTest() {
             setMockInput("-1")
             assertEquals(
                 DEFAULT_WINNING_SCORE,
-                getWinningScore()
+                getWinningScore(),
             )
         }
 
@@ -116,7 +116,7 @@ class RockPaperScissorsTest : IOTest() {
             setMockInput("0")
             assertEquals(
                 DEFAULT_WINNING_SCORE,
-                getWinningScore()
+                getWinningScore(),
             )
         }
 
@@ -124,7 +124,7 @@ class RockPaperScissorsTest : IOTest() {
             setMockInput("1")
             assertEquals(
                 1,
-                getWinningScore()
+                getWinningScore(),
             )
         }
     }

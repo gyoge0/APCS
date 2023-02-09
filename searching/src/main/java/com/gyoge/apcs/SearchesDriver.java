@@ -22,8 +22,8 @@ public class SearchesDriver {
             System.out.println(target + " was not found by the linear search.");
         } else {
             System.out.printf(
-                "Linear Search found it at location %d in %d comparisons.%n",
-                found, Searches.getLinearCount());
+                    "Linear Search found it at location %d in %d comparisons.%n",
+                    found, Searches.getLinearCount());
         }
 
         int found2 = Searches.binary(apple, target);
@@ -31,16 +31,16 @@ public class SearchesDriver {
             System.out.println(target + " was not found by the binary search.");
         } else {
             System.out.printf(
-                "Binary Search found it at location %d in %d comparisons.%n",
-                found2, Searches.getBinaryCount());
+                    "Binary Search found it at location %d in %d comparisons.%n",
+                    found2, Searches.getBinaryCount());
         }
     }
 
     public static String[] input(String filename) {
         Scanner infile =
-            new Scanner(
-                Objects.requireNonNull(
-                    SearchesDriver.class.getResourceAsStream("/" + filename)));
+                new Scanner(
+                        Objects.requireNonNull(
+                                SearchesDriver.class.getResourceAsStream("/" + filename)));
         String[] array = new String[amount];
         for (int k = 0; k < amount; k++) {
             array[k] = infile.next();

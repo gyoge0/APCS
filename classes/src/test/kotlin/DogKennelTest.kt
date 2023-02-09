@@ -16,7 +16,7 @@ class DogKennelTest : IOTest() {
                 null
                 null
                 null
-            """.trimIndent()
+            """.trimIndent(),
         )
     }
 }

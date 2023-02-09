@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 import java.awt.Color;
@@ -21,11 +22,8 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class SandDisplay extends JComponent implements
-    MouseListener,
-    MouseMotionListener,
-    ActionListener,
-    ChangeListener {
+public class SandDisplay extends JComponent
+        implements MouseListener, MouseMotionListener, ActionListener, ChangeListener {
 
     private final Image image;
     private final int cellSize;
@@ -44,15 +42,16 @@ public class SandDisplay extends JComponent implements
         mouseLoc = null;
         speed = computeSpeed(50);
 
-        //determine cell size
+        // determine cell size
         cellSize = Math.max(1, 600 / Math.max(numRows, numCols));
-        image = new BufferedImage(numCols * cellSize, numRows * cellSize,
-            BufferedImage.TYPE_INT_RGB);
+        image =
+                new BufferedImage(
+                        numCols * cellSize, numRows * cellSize, BufferedImage.TYPE_INT_RGB);
 
         JFrame frame = new JFrame(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane()
-            .setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
+                .setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.LINE_AXIS));
@@ -94,9 +93,9 @@ public class SandDisplay extends JComponent implements
         frame.setVisible(true);
     }
 
-    //returns speed based on sliderValue
-    //speed of 0 returns 10^3
-    //speed of 100 returns 10^6
+    // returns speed based on sliderValue
+    // speed of 0 returns 10^3
+    // speed of 100 returns 10^6
     private int computeSpeed(int sliderValue) {
         return (int) Math.pow(10, 0.03 * sliderValue + 3);
     }
@@ -127,8 +126,7 @@ public class SandDisplay extends JComponent implements
         g.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
     }
 
-    public void mouseClicked(MouseEvent e) {
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     public void mousePressed(MouseEvent e) {
         mouseLoc = toLocation(e);
@@ -138,11 +136,9 @@ public class SandDisplay extends JComponent implements
         mouseLoc = null;
     }
 
-    public void mouseEntered(MouseEvent e) {
-    }
+    public void mouseEntered(MouseEvent e) {}
 
-    public void mouseExited(MouseEvent e) {
-    }
+    public void mouseExited(MouseEvent e) {}
 
     private int[] toLocation(MouseEvent e) {
         int row = e.getY() / cellSize;
@@ -158,8 +154,7 @@ public class SandDisplay extends JComponent implements
         mouseLoc = toLocation(e);
     }
 
-    public void mouseMoved(MouseEvent e) {
-    }
+    public void mouseMoved(MouseEvent e) {}
 
     public void actionPerformed(ActionEvent e) {
         tool = Integer.parseInt(e.getActionCommand());
@@ -173,7 +168,7 @@ public class SandDisplay extends JComponent implements
         speed = computeSpeed(slider.getValue());
     }
 
-    //returns number of times to step between repainting and processing mouse input
+    // returns number of times to step between repainting and processing mouse input
     public int getSpeed() {
         return speed;
     }

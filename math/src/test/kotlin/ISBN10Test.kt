@@ -12,7 +12,7 @@ class ISBN10Test : IOTest() {
             """
                 ISBN-10: 13601267-1
                 ==========================================
-            """.trimIndent()
+            """.trimIndent(),
         )
     }
 
@@ -23,7 +23,7 @@ class ISBN10Test : IOTest() {
             """
                 ISBN-10: 13031997-X
                 ==========================================
-            """.trimIndent()
+            """.trimIndent(),
         )
     }
 
@@ -34,7 +34,7 @@ class ISBN10Test : IOTest() {
             """
                 ISBN-10: 158939758-4
                 ==========================================
-            """.trimIndent()
+            """.trimIndent(),
         )
     }
 }

@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 @SuppressWarnings("unused")
@@ -7,10 +8,7 @@ public class WordFrequency implements Comparable<WordFrequency> {
 
     @Override
     public String toString() {
-        return "WordFrequency{" +
-                "word='" + word + '\'' +
-                ", frequency=" + frequency +
-                '}';
+        return "WordFrequency{" + "word='" + word + '\'' + ", frequency=" + frequency + '}';
     }
 
     public String getWord() {

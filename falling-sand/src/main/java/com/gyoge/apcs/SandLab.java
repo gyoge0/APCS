@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 import java.awt.Color;
@@ -5,15 +6,16 @@ import java.util.Random;
 
 public class SandLab {
 
-    //add constants for particle types here
+    // add constants for particle types here
     public static final int EMPTY = 0;
     public static final int METAL = 1;
     public static final int SAND = 2;
     public static final int WATER = 3;
-    //do not add any more fields
+    // do not add any more fields
     private final int[][] grid;
     private final SandDisplay display;
     private final Random random = new Random();
+
     public SandLab(int numRows, int numCols) {
         String[] names;
         names = new String[4];
@@ -39,7 +41,7 @@ public class SandLab {
             }
             updateDisplay();
             display.repaint();
-            display.pause(1);  // wait for redrawing and for mouse
+            display.pause(1); // wait for redrawing and for mouse
             int[] mouseLoc = display.getMouseLocation();
             // test if mouse clicked
             if (mouseLoc != null) {
@@ -48,8 +50,8 @@ public class SandLab {
         }
     }
 
-    //called repeatedly.
-    //causes one random particle to maybe do something.
+    // called repeatedly.
+    // causes one random particle to maybe do something.
     public void step() {
         int x = random.nextInt(grid.length);
         int y = random.nextInt(grid[x].length);
@@ -73,30 +75,33 @@ public class SandLab {
                 case 0 -> newY--;
             }
 
-            if (newX < grid.length && newY < grid[newX].length && newY >= 0
-                && grid[newX][newY] == EMPTY) {
+            if (newX < grid.length
+                    && newY < grid[newX].length
+                    && newY >= 0
+                    && grid[newX][newY] == EMPTY) {
                 grid[x][y] = EMPTY;
                 grid[newX][newY] = WATER;
             }
         }
     }
 
-    //copies each element of grid into the display
+    // copies each element of grid into the display
     public void updateDisplay() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[0].length; col++) {
-                Color color = switch (grid[row][col]) {
-                    case METAL -> Color.GRAY;
-                    case SAND -> Color.YELLOW;
-                    case WATER -> Color.BLUE;
-                    default -> Color.BLACK;
-                };
+                Color color =
+                        switch (grid[row][col]) {
+                            case METAL -> Color.GRAY;
+                            case SAND -> Color.YELLOW;
+                            case WATER -> Color.BLUE;
+                            default -> Color.BLACK;
+                        };
                 display.setColor(row, col, color);
             }
         }
     }
 
-    //called when the user clicks on a location using the given tool
+    // called when the user clicks on a location using the given tool
     private void locationClicked(int row, int col, int tool) {
         grid[row][col] = tool;
     }

@@ -48,26 +48,26 @@ public class Artist implements Comparable<Artist> {
         if (o == null || getClass() != o.getClass()) return false;
         Artist artist = (Artist) o;
         return Objects.equals(getArtistName(), artist.getArtistName())
-            && Objects.equals(getSongName(), artist.getSongName())
-            && Objects.equals(getArtistImage(), artist.getArtistImage())
-            && Objects.equals(getSongSales(), artist.getSongSales());
+                && Objects.equals(getSongName(), artist.getSongName())
+                && Objects.equals(getArtistImage(), artist.getArtistImage())
+                && Objects.equals(getSongSales(), artist.getSongSales());
     }
 
     @Override
     public String toString() {
         return "Artist{"
-            + "artistName='"
-            + artistName
-            + '\''
-            + ", songName='"
-            + songName
-            + '\''
-            + ", artistImage='"
-            + artistImage
-            + '\''
-            + ", songSales="
-            + songSales
-            + '}';
+                + "artistName='"
+                + artistName
+                + '\''
+                + ", songName='"
+                + songName
+                + '\''
+                + ", artistImage='"
+                + artistImage
+                + '\''
+                + ", songSales="
+                + songSales
+                + '}';
     }
 
     public String getArtistName() {

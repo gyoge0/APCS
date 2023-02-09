@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 import java.util.Arrays;
@@ -13,7 +14,8 @@ public class DeclarationOfIndependence {
                 .map(word -> word.replaceAll("[^a-zA-Z]", ""))
                 .filter(word -> !word.isEmpty())
                 .collect(Collectors.groupingBy(word -> word, Collectors.counting()))
-                .entrySet().stream()
+                .entrySet()
+                .stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().intValue()))
                 .sorted(Comparator.reverseOrder())
                 .toList();

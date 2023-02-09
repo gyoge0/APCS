@@ -1,12 +1,15 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
-import javax.swing.*;
 import java.util.PriorityQueue;
+import javax.swing.*;
 
 @SuppressWarnings("unused")
 public class EmergencyRoom {
-    //list of conditions
-    private static final String[] conditions = {"Cardiac Arrest", "Stroke", "Poisoning", "Minor Head Injury", "Broken Ankle"};
+    // list of conditions
+    private static final String[] conditions = {
+        "Cardiac Arrest", "Stroke", "Poisoning", "Minor Head Injury", "Broken Ankle"
+    };
 
     private final String name;
     private final PriorityQueue<Patient> patients = new PriorityQueue<>();
@@ -25,10 +28,7 @@ public class EmergencyRoom {
 
     @Override
     public String toString() {
-        return "EmergencyRoom{" +
-                "name='" + name + '\'' +
-                ", patients=" + patients +
-                '}';
+        return "EmergencyRoom{" + "name='" + name + '\'' + ", patients=" + patients + '}';
     }
 
     public int triage(int age, String condition) {
@@ -49,11 +49,21 @@ public class EmergencyRoom {
         }
     }
 
-
     public void addPatient() {
-        //use dialogue boxes and dropdowns to get patient info
-        String condition = (String) JOptionPane.showInputDialog(null, "Choose a condition.", "Select Patient Condition", JOptionPane.PLAIN_MESSAGE, null, conditions, conditions[0]);
-        int age = Integer.parseInt(JOptionPane.showInputDialog("Enter Patient's Age: ").replace(" ", ""));
+        // use dialogue boxes and dropdowns to get patient info
+        String condition =
+                (String)
+                        JOptionPane.showInputDialog(
+                                null,
+                                "Choose a condition.",
+                                "Select Patient Condition",
+                                JOptionPane.PLAIN_MESSAGE,
+                                null,
+                                conditions,
+                                conditions[0]);
+        int age =
+                Integer.parseInt(
+                        JOptionPane.showInputDialog("Enter Patient's Age: ").replace(" ", ""));
         String name = JOptionPane.showInputDialog("Enter Patient's Name: ");
 
         patients.add(new Patient(name, triage(age, condition)));
