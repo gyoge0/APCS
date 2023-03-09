@@ -104,15 +104,16 @@ public class HashMap<K, V> {
         }
         for (Entry<K, V> entry : buckets[bucket]) {
             if (entry.getKey().equals(key)) {
-                entry.setValue(value);
-                return value;
+                V oldValue = entry.getValue();
+                entry.value = value;
+                return oldValue;
             }
         }
         if (buckets[bucket].size() > MAX_ARRAY_SIZE) {
             resizeHashArray();
         }
         buckets[bucket].add(new Entry<>(key, value));
-        return value;
+        return null;
     }
 
     public Set<K> keySet() {
