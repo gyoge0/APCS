@@ -1,10 +1,10 @@
 package com.gyoge.apcs;
 //import java.util.*;
 
-public class TestArrayList {
+public class TestIntegerArrayList {
 
     // note, this method tests the ArrayList size() method
-    public static void printArray(String msg, ArrayList a) {
+    public static void printArray(String msg, IntegerArrayList a) {
         if (msg != null)
             System.out.println(msg + ":");
 
@@ -35,7 +35,7 @@ public class TestArrayList {
          *      the constructors, size, get, and add.
          */
         printTestHeader(testCount++, "create an ArrayList, add 2 elements, then call size()");
-        ArrayList myList = new ArrayList();
+        IntegerArrayList myList = new IntegerArrayList();
         //ArrayList<Integer> myList = new ArrayList<Integer>();
         myList.add(32);
         myList.add(16);

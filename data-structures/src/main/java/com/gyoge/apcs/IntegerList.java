@@ -1,7 +1,7 @@
 package com.gyoge.apcs;
 
 @SuppressWarnings("unused")
-public interface List {
+public interface IntegerList {
     void add(int index, Integer element);
 
     boolean add(Integer element);
