@@ -1,3 +1,4 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 import java.util.Scanner;
@@ -14,12 +15,10 @@ public class HawaiianPhonetics {
     public static boolean validateWord(String word) {
         Set<Character> chars = Set.of('p', 'h', 'k', 'l', 'm', 'n', 'a', 'e', 'i', 'o', 'u', 'w');
         //noinspection SuspiciousMethodCalls
-        return word.chars()
-                .boxed()
-                .allMatch(chars::contains);
+        return word.chars().boxed().allMatch(chars::contains);
     }
 
-    //create and return the phonetic representation of the input Hawaiian word
+    // create and return the phonetic representation of the input Hawaiian word
     public static String generatePhonetic(String word) {
         StringBuilder phonetic = new StringBuilder();
         char[] chars = word.toCharArray();
@@ -170,27 +169,26 @@ public class HawaiianPhonetics {
         return phonetic.toString();
     }
 
-
-    //gather user input
+    // gather user input
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String word;
 
-        //super janky while loop setup!
+        // super janky while loop setup!
         while (true) {
-            //get input
+            // get input
             System.out.println("Please enter a Hawaiian word to pronounce.");
             word = s.nextLine();
-            //check if input is valid
+            // check if input is valid
             if (!validateWord(word)) {
                 System.out.println("Please enter a valid Hawaiian word!");
                 continue;
             }
 
-            //generate and print phonetic
+            // generate and print phonetic
             System.out.println("The phonetic for " + word + " is " + generatePhonetic(word));
 
-            //ask if they want to go again
+            // ask if they want to go again
             System.out.println("Would you like to enter another word? (Enter YES (Y) or NO (N)");
             word = s.nextLine();
             word = word.toUpperCase();
@@ -198,7 +196,5 @@ public class HawaiianPhonetics {
                 break;
             }
         }
-
     }
-
 }

@@ -1,14 +1,15 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
-//Complete LinkedList class with nested helper node class
+// Complete LinkedList class with nested helper node class
 
 @SuppressWarnings({"SameParameterValue", "UnusedReturnValue", "unused"})
 public class LinkedList<T> {
     private Node<T> head;
     private int size;
 
-    //class for creating node objects that store integers
-    //nested in LinkedList since that is the only class that utilizes it
+    // class for creating node objects that store integers
+    // nested in LinkedList since that is the only class that utilizes it
     private static class Node<T> {
         public T getData() {
             return data;
@@ -18,10 +19,10 @@ public class LinkedList<T> {
             this.data = data;
         }
 
-        private T data; //the data stored at this place in the list
-        private Node<T> next; //reference to the nextNodePtr node in the list (the link)
+        private T data; // the data stored at this place in the list
+        private Node<T> next; // reference to the nextNodePtr node in the list (the link)
 
-        //constructor initializes the data and defaults reference to the nextNodePtr node to null
+        // constructor initializes the data and defaults reference to the nextNodePtr node to null
         Node(T data) {
             this.data = data;
             this.next = null;
@@ -33,13 +34,13 @@ public class LinkedList<T> {
         }
     }
 
-    //Linked List Constructor
+    // Linked List Constructor
     public LinkedList() {
         this.head = null;
         this.size = 0;
     }
 
-    //appends a node with the value num to the beginning of the list
+    // appends a node with the value num to the beginning of the list
     public void addFirst(T data) {
         /* 1. Create a new node object with the value num
          * 2. Set the new node's nextNodePtr field to reference the current headNodePtr node
@@ -64,8 +65,7 @@ public class LinkedList<T> {
         return str.toString();
     }
 
-    //implement other methods here
-
+    // implement other methods here
 
     public boolean indexOf(T six) {
         Node<T> current = head;
@@ -137,5 +137,4 @@ public class LinkedList<T> {
         current.next = new Node<>(data);
         size++;
     }
-
 }

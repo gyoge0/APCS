@@ -1,8 +1,8 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
-
 
 @Suppress("TestFunctionName", "SpellCheckingInspection")
 class TestHawaiian {
@@ -48,7 +48,6 @@ class TestHawaiian {
         assertEquals("Kah-neh", phonetic)
     }
 
-
     @Test
     fun Awiwewuw() {
         val phonetic = HawaiianPhonetics.generatePhonetic("Awiwewuw")
@@ -60,7 +59,6 @@ class TestHawaiian {
         val phonetic = HawaiianPhonetics.generatePhonetic("Hoaloha")
         assertEquals("Hoh-ah-loh-hah", phonetic)
     }
-
 
     @Test
     fun Keiki() {
@@ -74,11 +72,15 @@ class TestHawaiian {
         assertEquals("Hoo-ah-eye", phonetic)
     }
 
-
     @Test
     fun Kaiapuni() {
         val phonetic = HawaiianPhonetics.generatePhonetic("Kaiapuni")
         assertEquals("Keye-ah-poo-nee", phonetic)
     }
 
+    @Test
+    fun oumuamua() {
+        val phonetic = HawaiianPhonetics.generatePhonetic("oumuamua")
+        assertEquals("Ow-moo-ah-moo-ah", phonetic)
+    }
 }

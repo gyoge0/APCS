@@ -1,17 +1,16 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
-//import java.util.*;
+// import java.util.*;
 
 public class TestIntegerArrayList {
 
     // note, this method tests the ArrayList size() method
     public static void printArray(String msg, IntegerArrayList a) {
-        if (msg != null)
-            System.out.println(msg + ":");
+        if (msg != null) System.out.println(msg + ":");
 
         for (int k = 0; k < a.size(); k++) {
             System.out.printf("%5s,", a.get(k));
-            if ((k + 1) % 10 == 0)
-                System.out.println();
+            if ((k + 1) % 10 == 0) System.out.println();
         }
         System.out.println();
     }
@@ -36,7 +35,7 @@ public class TestIntegerArrayList {
          */
         printTestHeader(testCount++, "create an ArrayList, add 2 elements, then call size()");
         IntegerArrayList myList = new IntegerArrayList();
-        //ArrayList<Integer> myList = new ArrayList<Integer>();
+        // ArrayList<Integer> myList = new ArrayList<Integer>();
         myList.add(32);
         myList.add(16);
         int size = myList.size();
@@ -61,17 +60,17 @@ public class TestIntegerArrayList {
          */
 
         printTestHeader(testCount++, "add several more elements forcing a call to expandArray()");
-        for (int k = 0; k < 10; k++)
-            myList.add(k + 5);
+        for (int k = 0; k < 10; k++) myList.add(k + 5);
         printArray(null, myList);
         printTestTrailer();
-
 
         /* ===============================================
          * Test:  set method
          * ===============================================
          */
-        printTestHeader(testCount++, "test set method, set 1st element to 100, middle to 555 and last to 999 ");
+        printTestHeader(
+                testCount++,
+                "test set method, set 1st element to 100, middle to 555 and last to 999 ");
         element = myList.set(0, 100);
         System.out.println("previous value at 0 was: " + element);
         int middle = (myList.size() - 1) / 2;
@@ -81,7 +80,6 @@ public class TestIntegerArrayList {
         System.out.println("previous value at last index was: " + element);
         printArray(null, myList);
         printTestTrailer();
-
 
         /* ===============================================
          * Test: indexOf method
@@ -98,7 +96,6 @@ public class TestIntegerArrayList {
         index = myList.indexOf(123);
         System.out.println("found element 123 at: " + index);
         printTestTrailer();
-
 
         /* ===============================================
          * Test: adds at a specific index
@@ -127,7 +124,6 @@ public class TestIntegerArrayList {
          */
         printTestHeader(testCount++, "test removes, the last element, the first, the middle ");
 
-
         System.out.println("after removing last element");
         int lastElement = myList.remove(myList.size() - 1);
         printArray("elm: " + lastElement, myList);
@@ -140,7 +136,6 @@ public class TestIntegerArrayList {
         int midElement = myList.remove(myList.size() / 2);
         printArray("elm: " + midElement, myList);
         printTestTrailer();
-
 
         /* ====================================================================
          * Test: invalid indices - should generate error messages...for now...
@@ -174,7 +169,5 @@ public class TestIntegerArrayList {
         }
 
         printTestTrailer();
-
     }
-
 }

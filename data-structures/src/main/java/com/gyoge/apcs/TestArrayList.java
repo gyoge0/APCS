@@ -1,18 +1,17 @@
-package com.gyoge.apcs;//import java.util.*;
-//import linkList.*;
+// Yogesh Thambidurai APCS 2022-23
+package com.gyoge.apcs; // import java.util.*;
+// import linkList.*;
 
 public class TestArrayList {
 
     // note, this method tests the ArrayList size() method
-    //public static void printArray(String msg, ArrayListInteger a)
+    // public static void printArray(String msg, ArrayListInteger a)
     public static <T> void printArray(String msg, ArrayList<T> a) {
-        if (msg != null)
-            System.out.println(msg + ":");
+        if (msg != null) System.out.println(msg + ":");
 
         for (int k = 0; k < a.size(); k++) {
             System.out.printf("%7s, ", a.get(k));
-            if ((k + 1) % 10 == 0)
-                System.out.println();
+            if ((k + 1) % 10 == 0) System.out.println();
         }
         System.out.println();
     }
@@ -40,7 +39,7 @@ public class TestArrayList {
          *       printArray.  Verify you get the same test results.
          */
         printTestHeader(testCount++, "create an ArrayList, add 2 elements, then call size()");
-        //ArrayListInteger myList = new ArrayListInteger();
+        // ArrayListInteger myList = new ArrayListInteger();
         ArrayList<String> myList = new ArrayList<>();
         myList.add("aaa");
         myList.add("bbb");
@@ -49,23 +48,21 @@ public class TestArrayList {
         printArray("myList", myList);
         printTestTrailer();
 
-
         printTestHeader(testCount++, "test get(index)");
         System.out.println("element at 0: " + myList.get(0));
         System.out.println("element at 1: " + myList.get(1));
         printTestTrailer();
-
 
         printTestHeader(testCount++, "test remove(index) with 5 elements ");
         myList.add("ccc");
         myList.add("ddd");
         myList.add("eee");
         printArray("Before remove", myList);
-        myList.remove(0);   //remove first element
+        myList.remove(0); // remove first element
         printArray("after removing 1st element", myList);
-        myList.remove(myList.size() - 1);   //remove last element
+        myList.remove(myList.size() - 1); // remove last element
         printArray("after removing last element", myList);
-        myList.remove(1);   //remove middle element
+        myList.remove(1); // remove middle element
         printArray("after removing middle element", myList);
 
         myList.remove(0);
@@ -74,7 +71,6 @@ public class TestArrayList {
 
         printTestTrailer();
 
-
         printTestHeader(testCount++, "test adding past the original size of the internal array");
         for (int k = 0; k < 20; k++) {
             char ch = (char) ('a' + k);
@@ -82,7 +78,6 @@ public class TestArrayList {
         }
         printArray(null, myList);
         printTestTrailer();
-
 
         printTestHeader(testCount++, "test add(index, element)");
         myList.add(0, "front");
@@ -93,8 +88,9 @@ public class TestArrayList {
         printArray("added \"end\" at the end", myList);
         printTestTrailer();
 
-
-        printTestHeader(testCount++, "test set method, set 1st element to \"atZero\", last to \"lastOne\" ");
+        printTestHeader(
+                testCount++,
+                "test set method, set 1st element to \"atZero\", last to \"lastOne\" ");
         String elm = myList.set(0, "atZero");
         System.out.println("previous value at 0 was: " + elm);
         elm = myList.set(myList.size() - 1, "lastOne");
@@ -117,10 +113,7 @@ public class TestArrayList {
         //       you will crash here when using the ArrayList<Integer>
         //       later today, we will add a try/catch block to handle this condition
 
-
-        //add some additional test cases
-
+        // add some additional test cases
 
     }
-
 }

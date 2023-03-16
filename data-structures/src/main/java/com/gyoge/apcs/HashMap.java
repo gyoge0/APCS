@@ -1,8 +1,8 @@
+// Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
 import java.util.LinkedList;
 import java.util.Set;
-
 
 @SuppressWarnings("unused")
 public class HashMap<K, V> {
@@ -25,11 +25,8 @@ public class HashMap<K, V> {
     public static void testGet(HashMap<String, String> hashMap, String str) {
         System.out.print("testGet: key=" + str + ", found: ");
         String value = hashMap.get(str);
-        if (value == null)
-            System.out.println("false");
-        else
-            System.out.println("true (" + value + ")");
-
+        if (value == null) System.out.println("false");
+        else System.out.println("true (" + value + ")");
     }
 
     public static void main(String[] args) {
@@ -60,17 +57,14 @@ public class HashMap<K, V> {
         Set<String> mySet = myDictionary.keySet();
         System.out.println("keys: " + mySet + ", size=" + mySet.size());
 
-
         System.out.println("\nAdding more gets to verify resizing the static array works");
         int dupCnt = 0;
         for (int k = 0; k < 30; k++) {
             StringBuilder str = new StringBuilder();
-            for (int j = 0; j < 3; j++)
-                str.append((char) (Math.random() * 10 + 'a'));
+            for (int j = 0; j < 3; j++) str.append((char) (Math.random() * 10 + 'a'));
 
             String result = myDictionary.put(str.toString(), str.toString());
-            if (result != null)
-                dupCnt++;
+            if (result != null) dupCnt++;
 
             //noinspection ConstantValue
             if (k + 1 % 20 == 0) {
@@ -181,9 +175,17 @@ public class HashMap<K, V> {
 
     public String getStats() {
         String str = "number of times static array was resized: " + numArrayResized + "\n";
-        str += String.format("last time it took to resize array: %.2f usecs\n", lastTimeToResize / 1000.0);
-        str += String.format("total time it took to resize array: %.2f usecs\n", totalTimeToResize / 1000.0);
-        str += String.format("static array size: %d,  number of elements: %d\n", buckets.length, size());
+        str +=
+                String.format(
+                        "last time it took to resize array: %.2f usecs\n",
+                        lastTimeToResize / 1000.0);
+        str +=
+                String.format(
+                        "total time it took to resize array: %.2f usecs\n",
+                        totalTimeToResize / 1000.0);
+        str +=
+                String.format(
+                        "static array size: %d,  number of elements: %d\n", buckets.length, size());
 
         int max = 0;
         int cntNulls = 0;
@@ -201,9 +203,10 @@ public class HashMap<K, V> {
         }
         avg /= buckets.length - cntNulls;
 
-
         str += String.format("max ArrayList size: %d,  average AL size: %.2f\n", max, avg);
-        str += String.format("AL size threshold: %d,  num null entries: %d\n", MAX_ARRAY_SIZE, cntNulls);
+        str +=
+                String.format(
+                        "AL size threshold: %d,  num null entries: %d\n", MAX_ARRAY_SIZE, cntNulls);
         return str;
     }
 
