@@ -1,7 +1,7 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.Random;
 
 public class SandLab {
@@ -70,9 +70,15 @@ public class SandLab {
             int newX = x;
             int newY = y;
             switch (direction) {
-                case 1 -> newX++;
-                case 2 -> newY++;
-                case 0 -> newY--;
+                case 1:
+                    newX++;
+                    break;
+                case 2:
+                    newY++;
+                    break;
+                case 0:
+                    newY--;
+                    break;
             }
 
             if (newX < grid.length
@@ -89,14 +95,21 @@ public class SandLab {
     public void updateDisplay() {
         for (int row = 0; row < grid.length; row++) {
             for (int col = 0; col < grid[0].length; col++) {
-                // spotless:off
-                Color color = switch (grid[row][col]) {
-                    case METAL -> Color.GRAY;
-                    case SAND -> Color.YELLOW;
-                    case WATER -> Color.BLUE;
-                    default -> Color.BLACK;
-                };
-                //spotless:on
+                Color color;
+                switch (grid[row][col]) {
+                    case METAL:
+                        color = Color.GRAY;
+                        break;
+                    case SAND:
+                        color = Color.YELLOW;
+                        break;
+                    case WATER:
+                        color = Color.BLUE;
+                        break;
+                    default:
+                        color = Color.BLACK;
+                        break;
+                }
                 display.setColor(row, col, color);
             }
         }

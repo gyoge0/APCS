@@ -168,8 +168,12 @@ public class HeatMapPanel extends JPanel implements MouseListener {
         mousedRow = x / BLOCK_WIDTH;
         mousedCol = y / BLOCK_HEIGHT;
         switch (event.getButton()) {
-            case MouseEvent.BUTTON1 -> mousedTemp = MAX_TEMP * 10;
-            case MouseEvent.BUTTON3 -> mousedTemp = MIN_TEMP * 10;
+            case MouseEvent.BUTTON1:
+                mousedTemp = MAX_TEMP * 10;
+                break;
+            case MouseEvent.BUTTON3:
+                mousedTemp = MIN_TEMP * 10;
+                break;
         }
     }
 

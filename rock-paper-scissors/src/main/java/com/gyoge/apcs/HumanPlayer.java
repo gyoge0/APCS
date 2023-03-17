@@ -15,25 +15,35 @@ public class HumanPlayer extends GamePlayer {
         Choice choice = null;
         while (choice == null) {
             System.out.printf(
-                    """
-                    Enter your choice %s:
-                    \t1. Rock
-                    \t2. Paper
-                    \t3. Scissors
-                    Make your choice: """,
+                "Enter your choice %s:\n" +
+                "\t1. Rock\n" +
+                "\t2. Paper\n" +
+                "\t3. Scissors\n" +
+                "Make your choice:",
                     this.getName());
 
-            choice =
-                    switch (scanner.nextLine().toLowerCase()) {
-                        case "1", "r", "rock" -> Choice.ROCK;
-                        case "2", "p", "paper" -> Choice.PAPER;
-                        case "3", "s", "scissors" -> Choice.SCISSORS;
-                        default -> {
-                            System.out.println(
-                                    "Sorry, I don't understand what that means. Try again.");
-                            yield null;
-                        }
-                    };
+            switch (scanner.nextLine().toLowerCase()) {
+                case "1":
+                case "r":
+                case "rock":
+                    choice = Choice.ROCK;
+                    break;
+                case "2":
+                case "p":
+                case "paper":
+                    choice = Choice.PAPER;
+                    break;
+                case "3":
+                case "s":
+                case "scissors":
+                    choice = Choice.SCISSORS;
+                    break;
+                default:
+                    System.out.println(
+                        "Sorry, I don't understand what that means. Try again.");
+                    choice = null;
+                    break;
+            }
         }
         setChoice(choice);
     }

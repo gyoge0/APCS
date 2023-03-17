@@ -33,12 +33,20 @@ public class MarkovPlayer extends GamePlayer {
     @Override
     public void win() {
         super.win();
-        Choice opponentCurrentChoice =
-                switch (lastChoice) {
-                    case ROCK -> Choice.SCISSORS;
-                    case PAPER -> Choice.ROCK;
-                    case SCISSORS -> Choice.PAPER;
-                };
+        Choice opponentCurrentChoice;
+        switch (lastChoice) {
+            case ROCK:
+                opponentCurrentChoice = Choice.SCISSORS;
+                break;
+            case PAPER:
+                opponentCurrentChoice = Choice.ROCK;
+                break;
+            case SCISSORS:
+                opponentCurrentChoice = Choice.PAPER;
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
         matrix.add(lastOpponentChoice, opponentCurrentChoice);
         lastOpponentChoice = opponentCurrentChoice;
     }

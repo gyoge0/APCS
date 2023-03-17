@@ -128,32 +128,36 @@ public class RockPaperScissors {
 
         System.out.println();
         System.out.print(
-                """
-                Choose a type of player:
-                \t1. Human
-                \t2. Computer
-                \t3. Rock Lover
-                \t4. Paper Lover
-                \t5. Scissors Lover
-                \t6. Markov Player
-                Make your choice: """);
+            "Choose a type of player:\n" +
+            "\t1. Human\n" +
+            "\t2. Computer\n" +
+            "\t3. Rock Lover\n" +
+            "\t4. Paper Lover\n" +
+            "\t5. Scissors Lover\n" +
+            "\t6. Markov Player\n" +
+            "Make your choice:");
 
         Scanner input = new Scanner(System.in);
         int type = Integer.parseInt(input.nextLine());
 
-        return switch (type) {
-            case 1 -> {
+        switch (type) {
+            case 1:
                 System.out.print("What is your name: ");
                 String name = input.nextLine();
-                yield new HumanPlayer(name);
-            }
-            case 2 -> new ComputerPlayer("Computer");
-            case 3 -> new RockLoverPlayer("Bart Simpson");
-            case 4 -> new PaperLoverPlayer("Lisa Simpson");
-            case 5 -> new ScissorsLoverPlayer("Maggie Simpson");
-            case 6 -> new MarkovPlayer("Andrey Markov");
-            default -> throw new IllegalArgumentException("Invalid player type");
-        };
+                return new HumanPlayer(name);
+            case 2:
+                return new ComputerPlayer("Computer");
+            case 3:
+                return new RockLoverPlayer("Bart Simpson");
+            case 4:
+                return new PaperLoverPlayer("Lisa Simpson");
+            case 5:
+                return new ScissorsLoverPlayer("Maggie Simpson");
+            case 6:
+                return new MarkovPlayer("Andrey Markov");
+            default:
+                throw new IllegalArgumentException("Invalid player type");
+        }
     }
 
     /** Prints a message when the game is over. */

@@ -15,12 +15,20 @@ public class Matrix {
     private final Queue<Choice> afterScissors = new ArrayDeque<>(MEMORY + 1);
 
     public void add(Choice before, Choice made) {
-        Queue<Choice> queue =
-                switch (before) {
-                    case ROCK -> afterRock;
-                    case PAPER -> afterPaper;
-                    case SCISSORS -> afterScissors;
-                };
+        Queue<Choice> queue;
+        switch (before) {
+            case ROCK:
+                queue = afterRock;
+                break;
+            case PAPER:
+                queue = afterPaper;
+                break;
+            case SCISSORS:
+                queue = afterScissors;
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
         queue.add(made);
         if (queue.size() > MEMORY) {
             queue.remove();
@@ -28,12 +36,20 @@ public class Matrix {
     }
 
     public Choice predict(Choice before) {
-        Queue<Choice> queue =
-                switch (before) {
-                    case ROCK -> afterRock;
-                    case PAPER -> afterPaper;
-                    case SCISSORS -> afterScissors;
-                };
+        Queue<Choice> queue;
+        switch (before) {
+            case ROCK:
+                queue = afterRock;
+                break;
+            case PAPER:
+                queue = afterPaper;
+                break;
+            case SCISSORS:
+                queue = afterScissors;
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
 
         int rock = 0;
         int paper = 0;
@@ -41,9 +57,15 @@ public class Matrix {
 
         for (Choice choice : queue) {
             switch (choice) {
-                case ROCK -> rock++;
-                case PAPER -> paper++;
-                case SCISSORS -> scissors++;
+                case ROCK:
+                    rock++;
+                    break;
+                case PAPER:
+                    paper++;
+                    break;
+                case SCISSORS:
+                    scissors++;
+                    break;
             }
         }
 

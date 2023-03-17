@@ -13,10 +13,15 @@ public enum Choice {
     }
 
     public Choice losesTo() {
-        return switch (this) {
-            case ROCK -> PAPER;
-            case PAPER -> SCISSORS;
-            case SCISSORS -> ROCK;
-        };
+        switch (this) {
+            case ROCK:
+                return PAPER;
+            case PAPER:
+                return SCISSORS;
+            case SCISSORS:
+                return ROCK;
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 }
