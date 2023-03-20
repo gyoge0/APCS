@@ -13,12 +13,12 @@ public class ProcessImage {
     // Code to test
     public static void main(String[] args) {
         pixelValues =
-                new int[][] {
-                    {221, 184, 178, 84, 135},
-                    {84, 255, 255, 130, 84},
-                    {78, 255, 0, 0, 78},
-                    {84, 130, 255, 130, 84}
-                };
+            new int[][]{
+                {221, 184, 178, 84, 135},
+                {84, 255, 255, 130, 84},
+                {78, 255, 0, 0, 78},
+                {84, 130, 255, 130, 84}
+            };
         System.out.println("Count: " + countWhitePixels());
         processImage();
         System.out.println(Arrays.deepToString(pixelValues));

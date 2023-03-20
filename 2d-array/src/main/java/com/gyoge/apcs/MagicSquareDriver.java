@@ -44,15 +44,6 @@ public class MagicSquareDriver {
             this.a = a;
         }
 
-        public boolean isMagic() {
-            int sum = sumMajorDiagonal(a);
-            for (int i = 0; i < a.length; i++) {
-                if (a[i].length != a.length || sumRow(a, i) != sum || sumCol(a, i) != sum)
-                    return false;
-            }
-            return sumMinorDiagonal(a) == sum;
-        }
-
         public static int sumMajorDiagonal(int[][] a) {
             int sum = 0;
             for (int i = 0; i < a.length; i++) {
@@ -83,6 +74,15 @@ public class MagicSquareDriver {
                 sum += a[i][a[i].length - 1 - i];
             }
             return sum;
+        }
+
+        public boolean isMagic() {
+            int sum = sumMajorDiagonal(a);
+            for (int i = 0; i < a.length; i++) {
+                if (a[i].length != a.length || sumRow(a, i) != sum || sumCol(a, i) != sum)
+                    return false;
+            }
+            return sumMinorDiagonal(a) == sum;
         }
     }
 }

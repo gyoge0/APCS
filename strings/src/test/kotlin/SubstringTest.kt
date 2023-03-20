@@ -4,7 +4,8 @@ package com.gyoge.apcs
 import org.junit.jupiter.api.Test
 
 class SubstringTest : IOTest() {
-    @Test fun `Academies of Loudoun`() {
+    @Test
+    fun `Academies of Loudoun`() {
         setMockInput("Academies of Loudoun")
 
         Substring.main(arrayOf())

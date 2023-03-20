@@ -5,21 +5,24 @@ import org.junit.jupiter.api.Test
 
 @Suppress("SpellCheckingInspection", "RemoveRedundantBackticks")
 class ReverseStringTest : IOTest() {
-    @Test fun `processor`() {
+    @Test
+    fun `processor`() {
         setMockInput("processor")
 
         ReverseString.main(arrayOf())
         assertOutput("In:rossecorp")
     }
 
-    @Test fun `racecars`() {
+    @Test
+    fun `racecars`() {
         setMockInput("racecars")
 
         ReverseString.main(arrayOf())
         assertOutput("In:sracecar")
     }
 
-    @Test fun `manhattan`() {
+    @Test
+    fun `manhattan`() {
         setMockInput("manhattan")
 
         ReverseString.main(arrayOf())

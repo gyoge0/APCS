@@ -18,11 +18,12 @@ public class DogKennel {
     }
 
     public static Dog[][] fillDogKennel(
-            String[] nameArray,
-            String[] breedArray,
-            double[] weightArray,
-            int rowLength,
-            int colLength) {
+        String[] nameArray,
+        String[] breedArray,
+        double[] weightArray,
+        int rowLength,
+        int colLength
+    ) {
 
         int i = 0;
         Dog[][] returnKennel = new Dog[rowLength][colLength];

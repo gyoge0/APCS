@@ -12,7 +12,7 @@ public class Rational {
      * Constructs an object representing a rational number in the form of numer / denom. The
      * rational number will be simplified.
      *
-     * @param numerator the numerator of a rational number
+     * @param numerator   the numerator of a rational number
      * @param denominator the denominator of a rational number
      */
     public Rational(int numerator, int denominator) {
@@ -58,12 +58,12 @@ public class Rational {
      */
     public Rational add(Rational r) {
         return new Rational(
-                numerator * r.denominator + denominator * r.numerator, denominator * r.denominator);
+            numerator * r.denominator + denominator * r.numerator, denominator * r.denominator);
     }
 
     public Rational subtract(Rational r) {
         return new Rational(
-                numerator * r.denominator - denominator * r.numerator, denominator * r.denominator);
+            numerator * r.denominator - denominator * r.numerator, denominator * r.denominator);
     }
 
     public Rational multiply(Rational r) {
@@ -79,7 +79,9 @@ public class Rational {
         return Objects.hash(numerator, denominator);
     }
 
-    /** Reduces the fraction */
+    /**
+     * Reduces the fraction
+     */
     private void reduce() {
         int gcd = gcd(numerator, denominator);
         numerator /= gcd;

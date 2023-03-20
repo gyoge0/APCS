@@ -8,10 +8,10 @@ public class Elements {
      * reverse the order of the values in the array between i (inclusive) and j (exclusive)
      *
      * @param ns an array of ints
-     * @param i an int that is a valid index for ns
-     * @param j an int that satisfies i <= j <= ns.length
-     *     <p>post-condition: values in the array between i (inclusive) and j (exclusive) now appear
-     *     in the reverse order, and ns is unchanged otherwise
+     * @param i  an int that is a valid index for ns
+     * @param j  an int that satisfies i <= j <= ns.length
+     *           <p>post-condition: values in the array between i (inclusive) and j (exclusive) now appear
+     *           in the reverse order, and ns is unchanged otherwise
      */
     public static void reverse(int[] ns, int i, int j) {
         while (j > i) {
@@ -25,9 +25,9 @@ public class Elements {
      * swap two array values
      *
      * @param ns an array of ints with positive length
-     * @param i an int that is a valid index for ns
-     * @param j an int that is a valid index for ns
-     *     <p>post-condition: values at indices i and j are swapped and ns is otherwise unchanged.
+     * @param i  an int that is a valid index for ns
+     * @param j  an int that is a valid index for ns
+     *           <p>post-condition: values at indices i and j are swapped and ns is otherwise unchanged.
      */
     public static void swap(int[] ns, int i, int j) {
         int tmp = ns[i];
@@ -39,8 +39,8 @@ public class Elements {
      * shift the values in the array k values to the right, wrapping around if they go out the end
      *
      * @param ns an array of ints with positive length
-     * @param k an int that is a valid index for ns
-     *     <p>post-condition: values in the array are shifted as described above
+     * @param k  an int that is a valid index for ns
+     *           <p>post-condition: values in the array are shifted as described above
      */
     @SuppressWarnings("ManualArrayCopy")
     public static void rightShift(int[] ns, int k) {

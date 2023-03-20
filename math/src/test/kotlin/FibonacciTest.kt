@@ -4,7 +4,8 @@ package com.gyoge.apcs
 import org.junit.jupiter.api.Test
 
 class FibonacciTest : IOTest() {
-    @Test fun `test first 9 Fibonacci`() {
+    @Test
+    fun `test first 9 Fibonacci`() {
         setMockInput("9")
         Fibonacci.main(arrayOf())
 

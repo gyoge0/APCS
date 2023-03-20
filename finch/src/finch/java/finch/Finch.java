@@ -18,7 +18,9 @@ public class Finch extends Robot {
     private static final String LEVEL = "Level";
     private static final String UPSIDE_DOWN = "Upside%20Down";
 
-    /** Default constructor for the library. Set the default device to be A. */
+    /**
+     * Default constructor for the library. Set the default device to be A.
+     */
     public Finch() {
         this("A");
     }
@@ -27,8 +29,8 @@ public class Finch extends Robot {
      * General constructor for the library. Set the device to be "A", "B", or "C".
      *
      * @param device The letter corresponding to the finch.Hummingbird device, which much be "A",
-     *     "B", or "C". The letter that identifies the finch.Hummingbird device is assigned by the
-     *     BlueBird Connector.
+     *               "B", or "C". The letter that identifies the finch.Hummingbird device is assigned by the
+     *               BlueBird Connector.
      */
     public Finch(String device) {
         if (!((device == "A") || (device == "B") || (device == "C"))) {
@@ -121,10 +123,10 @@ public class Finch extends Robot {
      * Send a command to move the finch and wait until the finch has finished its motion to return.
      * Used by setMove and setTurn.
      *
-     * @param motion - Move or turn
+     * @param motion    - Move or turn
      * @param direction - forward, backward, right or left
-     * @param length - Length of travel (distance or angle)
-     * @param speed - Speed as a percent (Range: 0 to 100)
+     * @param length    - Length of travel (distance or angle)
+     * @param speed     - Speed as a percent (Range: 0 to 100)
      */
     private void moveFinchAndWait(String motion, String direction, double length, double speed) {
         String[] imUrlArgs = {"in", "finchIsMoving", "static", deviceInstance};
@@ -156,8 +158,8 @@ public class Finch extends Robot {
      * Direction should be specified as "F" or "B".
      *
      * @param direction - F or B for forward or backward
-     * @param distance - Distance to travel in cm. (Range: 0 to 500)
-     * @param speed - Speed as a percent (Range: 0 to 100)
+     * @param distance  - Distance to travel in cm. (Range: 0 to 500)
+     * @param speed     - Speed as a percent (Range: 0 to 100)
      */
     public void setMove(String direction, double distance, double speed) {
         String dir = formatForwardBackward(direction);
@@ -175,8 +177,8 @@ public class Finch extends Robot {
      * Sends a request for the finch to turn right or left to the give angle at the given speed.
      *
      * @param direction - R or L for right or left
-     * @param angle - Angle of the turn in degrees (Range: 0 to 360)
-     * @param speed - Speed of the turn as a percent (Range: 0 to 100)
+     * @param angle     - Angle of the turn in degrees (Range: 0 to 360)
+     * @param speed     - Speed of the turn as a percent (Range: 0 to 100)
      */
     public void setTurn(String direction, double angle, double speed) {
         String dir = formatRightLeft(direction);
@@ -193,7 +195,7 @@ public class Finch extends Robot {
     /**
      * Set the right and left motors of the finch to the speeds given.
      *
-     * @param leftSpeed - Speed as a percent (Range: 0 to 100)
+     * @param leftSpeed  - Speed as a percent (Range: 0 to 100)
      * @param rightSpeed - Speed as a percent (Range: 0 to 100)
      */
     public void setMotors(double leftSpeed, double rightSpeed) {
@@ -207,7 +209,9 @@ public class Finch extends Robot {
         httpRequestOut(url);
     }
 
-    /** Stop the finch motors */
+    /**
+     * Stop the finch motors
+     */
     public void stop() {
         String[] urlArgs = {"out", "stopFinch", deviceInstance};
         String url = getUrl(urlArgs);
@@ -217,10 +221,10 @@ public class Finch extends Robot {
     /**
      * Private method to set led intensity. Used to set beak and tail leds.
      *
-     * @param port - led to set. 1 is beak. 2-5 are tail. 6 sets entire tail. (Range: 1 to 6)
-     * @param redIntensity - red intensity (Range: 0 to 100)
+     * @param port           - led to set. 1 is beak. 2-5 are tail. 6 sets entire tail. (Range: 1 to 6)
+     * @param redIntensity   - red intensity (Range: 0 to 100)
      * @param greenIntensity - green intensity (Range: 0 to 100)
-     * @param blueIntensity - blue intensity (Range: 0 to 100)
+     * @param blueIntensity  - blue intensity (Range: 0 to 100)
      */
     private void setTriLED(int port, int redIntensity, int greenIntensity, int blueIntensity) {
         if ((port < 1) || (port > 6)) { // Check that port is valid
@@ -256,9 +260,9 @@ public class Finch extends Robot {
     /**
      * Set the finch beak to the given rgb color.
      *
-     * @param red - red intensity (Range: 0 to 100)
+     * @param red   - red intensity (Range: 0 to 100)
      * @param green - green intensity (Range: 0 to 100)
-     * @param blue - blue intensity (Range: 0 to 100)
+     * @param blue  - blue intensity (Range: 0 to 100)
      */
     public void setBeak(int red, int green, int blue) {
         setTriLED(1, red, green, blue);
@@ -268,9 +272,9 @@ public class Finch extends Robot {
      * Set the specified tail led to the specified rgb color.
      *
      * @param ledNum - led to set (Range: 1 to 4)
-     * @param red - red intensity (Range: 0 to 100)
-     * @param green - green intensity (Range: 0 to 100)
-     * @param blue - blue intensity (Range: 0 to 100)
+     * @param red    - red intensity (Range: 0 to 100)
+     * @param green  - green intensity (Range: 0 to 100)
+     * @param blue   - blue intensity (Range: 0 to 100)
      */
     public void setTail(int ledNum, int red, int green, int blue) {
         ledNum = clampParameterToBounds(ledNum, 1, 4);
@@ -281,9 +285,9 @@ public class Finch extends Robot {
      * Set all tail leds to the specified rgb color.
      *
      * @param ledNum - String which must be specified as 'all'
-     * @param red - red intensity (Range: 0 to 100)
-     * @param green - green intensity (Range: 0 to 100)
-     * @param blue - blue intensity (Range: 0 to 100)
+     * @param red    - red intensity (Range: 0 to 100)
+     * @param green  - green intensity (Range: 0 to 100)
+     * @param blue   - blue intensity (Range: 0 to 100)
      */
     public void setTail(String ledNum, int red, int green, int blue) {
         if (!ledNum.equals("all") && !ledNum.equals("All") && !ledNum.equals("ALL")) {
@@ -294,7 +298,9 @@ public class Finch extends Robot {
         setTriLED(6, red, green, blue);
     }
 
-    /** Reset the finch encoder values to 0. */
+    /**
+     * Reset the finch encoder values to 0.
+     */
     public void resetEncoders() {
         String[] urlArgs = {"out", "resetEncoders", deviceInstance};
         String url = getUrl(urlArgs);
@@ -306,7 +312,7 @@ public class Finch extends Robot {
      * Private function to get the value of a sensor
      *
      * @param sensor - Light, Distance, Line, or Encoder
-     * @param port - Right, Left, or static
+     * @param port   - Right, Left, or static
      * @return - sensor value returned by bluebird connector or -1 in the case of a problem.
      */
     private double getSensor(String sensor, String port) {
@@ -384,7 +390,7 @@ public class Finch extends Robot {
      * frame.
      *
      * @return the orientation of the finch. (Range: Beak up, Beak down, Tilt left, Tilt right,
-     *     Level, Upside down)
+     * Level, Upside down)
      */
     public String getOrientation() {
         boolean beakUp = getOrientationBoolean(BEAK_UP);

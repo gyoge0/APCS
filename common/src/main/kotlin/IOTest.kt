@@ -17,7 +17,8 @@ abstract class IOTest {
     private var mockOutput: ByteArrayOutputStream? = null
     private var mockInput: ByteArrayInputStream? = null
 
-    @BeforeEach fun setOutput() {
+    @BeforeEach
+    fun setOutput() {
         mockOutput = ByteArrayOutputStream()
         System.setOut(PrintStream(mockOutput!!))
     }
@@ -37,7 +38,8 @@ abstract class IOTest {
         getOutput()?.trim()?.replace("\r\n", "\n")
     )
 
-    @AfterEach fun resetIO() {
+    @AfterEach
+    fun resetIO() {
         System.setOut(stdout)
         System.setIn(stdin)
     }

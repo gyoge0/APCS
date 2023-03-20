@@ -10,7 +10,9 @@ package finch;
  */
 public class Hummingbird extends Robot {
 
-    /** Default constructor for the library. Set the default device to be A. */
+    /**
+     * Default constructor for the library. Set the default device to be A.
+     */
     public Hummingbird() {
         deviceInstance = "A";
         if (!isConnectionValid()) System.exit(0);
@@ -21,8 +23,8 @@ public class Hummingbird extends Robot {
      * General constructor for the library. Set the device to be "A", "B", or "C".
      *
      * @param device The letter corresponding to the finch.Hummingbird device, which much be "A",
-     *     "B", or "C". The letter that identifies the finch.Hummingbird device is assigned by the
-     *     BlueBird Connector.
+     *               "B", or "C". The letter that identifies the finch.Hummingbird device is assigned by the
+     *               BlueBird Connector.
      */
     public Hummingbird(String device) {
         if (!((device == "A") || (device == "B") || (device == "C"))) {
@@ -42,7 +44,7 @@ public class Hummingbird extends Robot {
     private boolean isHummingbird() {
         StringBuilder newURL = new StringBuilder(baseUrl);
         String testURL =
-                (newURL.append("in/isHummingbird/static/").append(deviceInstance)).toString();
+            (newURL.append("in/isHummingbird/static/").append(deviceInstance)).toString();
 
         String stringResponse = sendHttpRequest(testURL);
         if (stringResponse.equals("false")) {
@@ -55,8 +57,8 @@ public class Hummingbird extends Robot {
             return true;
         }
         /*
-          	try {
-           	StringBuilder newURL = new StringBuilder(baseUrl);
+              try {
+               StringBuilder newURL = new StringBuilder(baseUrl);
                String testURL = (newURL.append("in/")
                        .append("sensor/4/")
                        .append(deviceInstance)).toString();
@@ -68,18 +70,19 @@ public class Hummingbird extends Robot {
 
               String stringResponse = verifyResponse();
               if (stringResponse.equals("255")) {
-           	   System.out.println("Error: Device "+deviceInstance+" is not a finch.Hummingbird");
-           	   return false;
+                  System.out.println("Error: Device "+deviceInstance+" is not a finch.Hummingbird");
+                  return false;
               }
               else {
-           	   return true;
+                  return true;
               }
         } catch (IOException e) {
               System.out.println("Error: Device " + deviceInstance + " is not connected");
               return false;
           }
-          	*/
+              */
     }
+
     /* This function checks whether a port is within the given bounds. It returns a boolean value
     that is either true or false and prints an error if necessary. */
     protected boolean isPortValid(int port, int portMax) {
@@ -93,7 +96,7 @@ public class Hummingbird extends Robot {
      * setPositionServo sets the positionServo at a given port to a specific angle. The function
      * shows a warning dialog if the inputs are not in the specified range.
      *
-     * @param port The port that the position servo is attached to. (Range: 1-4)
+     * @param port     The port that the position servo is attached to. (Range: 1-4)
      * @param position The angle of the position servo. (Range: 0-180)
      */
     public void setPositionServo(int port, int angle) {
@@ -106,13 +109,13 @@ public class Hummingbird extends Robot {
 
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String servoUrl =
-                (resultUrl
-                                .append("out/")
-                                .append("servo/")
-                                .append(Integer.toString(port) + "/")
-                                .append(Integer.toString(degrees) + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("out/")
+                .append("servo/")
+                .append(Integer.toString(port) + "/")
+                .append(Integer.toString(degrees) + "/")
+                .append(deviceInstance))
+                .toString();
 
         httpRequestOut(servoUrl);
     }
@@ -121,7 +124,7 @@ public class Hummingbird extends Robot {
      * setRotationServo sets the rotationServo at a given port to a specific speed. The function
      * shows a warning dialog if the inputs are not in the specified range.
      *
-     * @param port The port that the rotation servo is attached to. (Range: 1-4)
+     * @param port  The port that the rotation servo is attached to. (Range: 1-4)
      * @param speed The speed of the rotation servo. (Range: -100-100)
      */
     public void setRotationServo(int port, int speed) {
@@ -140,13 +143,13 @@ public class Hummingbird extends Robot {
         // Create the http command
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String rotationUrl =
-                (resultUrl
-                                .append("out/")
-                                .append("rotation/")
-                                .append(Integer.toString(port) + "/")
-                                .append(Integer.toString(speed) + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("out/")
+                .append("rotation/")
+                .append(Integer.toString(port) + "/")
+                .append(Integer.toString(speed) + "/")
+                .append(deviceInstance))
+                .toString();
 
         httpRequestOut(rotationUrl);
     }
@@ -155,7 +158,7 @@ public class Hummingbird extends Robot {
      * setLED sets the LED at a given port to a specific light intensity. The function shows a
      * warning dialog if the inputs are not in the specified range.
      *
-     * @param port The port that the LED is attached to. (Range: 1-4)
+     * @param port      The port that the LED is attached to. (Range: 1-4)
      * @param intensity The intensity of the LED. (Range: 0-100)
      */
     public void setLED(int port, int intensity) {
@@ -169,13 +172,13 @@ public class Hummingbird extends Robot {
         intensity = (int) (intensity * 255.0 / 100.0);
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String ledUrl =
-                (resultUrl
-                                .append("out/")
-                                .append("led/")
-                                .append(Integer.toString(port) + "/")
-                                .append(Integer.toString(intensity) + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("out/")
+                .append("led/")
+                .append(Integer.toString(port) + "/")
+                .append(Integer.toString(intensity) + "/")
+                .append(deviceInstance))
+                .toString();
 
         httpRequestOut(ledUrl);
     }
@@ -184,10 +187,10 @@ public class Hummingbird extends Robot {
      * setTriLED sets the triLED at a given port to a specific color. The function shows a warning
      * dialog if the inputs are not in the specified range.
      *
-     * @param port The port that the LED is attached to. (Range: 1-4)
-     * @param redIntensity The intensity of red light of the triLED. (Range: 0-100)
+     * @param port           The port that the LED is attached to. (Range: 1-4)
+     * @param redIntensity   The intensity of red light of the triLED. (Range: 0-100)
      * @param greenIntensity The intensity of green light of the triLED. (Range: 0-100)
-     * @param blueIntensity The intensity of blue light of the triLED. (Range: 0-100)
+     * @param blueIntensity  The intensity of blue light of the triLED. (Range: 0-100)
      */
     public void setTriLED(int port, int redIntensity, int greenIntensity, int blueIntensity) {
         if (!isPortValid(port, 2)) { // Check that port is valid
@@ -205,15 +208,15 @@ public class Hummingbird extends Robot {
         // Build http request
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String triLedUrl =
-                (resultUrl
-                                .append("out/")
-                                .append("triled/")
-                                .append(Integer.toString(port) + "/")
-                                .append(Integer.toString(redIntensity) + "/")
-                                .append(Integer.toString(greenIntensity) + "/")
-                                .append(Integer.toString(blueIntensity) + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("out/")
+                .append("triled/")
+                .append(Integer.toString(port) + "/")
+                .append(Integer.toString(redIntensity) + "/")
+                .append(Integer.toString(greenIntensity) + "/")
+                .append(Integer.toString(blueIntensity) + "/")
+                .append(deviceInstance))
+                .toString();
         httpRequestOut(triLedUrl);
     }
 
@@ -228,12 +231,12 @@ public class Hummingbird extends Robot {
         }
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String sensorUrl =
-                (resultUrl
-                                .append("in/")
-                                .append("sensor/")
-                                .append(Integer.toString(port) + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("in/")
+                .append("sensor/")
+                .append(Integer.toString(port) + "/")
+                .append(deviceInstance))
+                .toString();
         return (int) httpRequestInDouble(sensorUrl);
     }
 

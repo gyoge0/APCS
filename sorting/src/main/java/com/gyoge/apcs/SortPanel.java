@@ -1,14 +1,16 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-/** Interface for the sorting object to use when updating the UI */
+/**
+ * Interface for the sorting object to use when updating the UI
+ */
 public abstract class SortPanel extends JPanel {
 
     public static final int SCALE = 100;
@@ -59,14 +61,14 @@ public abstract class SortPanel extends JPanel {
     public void updateArray(final int[] anArray) {
         try {
             SwingUtilities.invokeAndWait(
-                    () -> {
-                        drawArray(anArray);
-                        try {
-                            Thread.sleep(DELAY_LENGTH);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                    });
+                () -> {
+                    drawArray(anArray);
+                    try {
+                        Thread.sleep(DELAY_LENGTH);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                });
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,16 +96,18 @@ public abstract class SortPanel extends JPanel {
 
             // draw rectangle
             graphics.fillRect(
-                    (SCREEN_SIZE / anArray.length) * i,
-                    SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]),
-                    (SCREEN_SIZE / anArray.length) / 2,
-                    (((SCREEN_SIZE - 100) / SCALE) * anArray[i]));
+                (SCREEN_SIZE / anArray.length) * i,
+                SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]),
+                (SCREEN_SIZE / anArray.length) / 2,
+                (((SCREEN_SIZE - 100) / SCALE) * anArray[i])
+            );
 
             // draw number on rectangle
             graphics.drawString(
-                    anArray[i] + "",
-                    (SCREEN_SIZE / anArray.length) * i,
-                    SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]) - 15);
+                anArray[i] + "",
+                (SCREEN_SIZE / anArray.length) * i,
+                SCREEN_SIZE - (((SCREEN_SIZE - 100) / SCALE) * anArray[i]) - 15
+            );
         }
 
         repaint();

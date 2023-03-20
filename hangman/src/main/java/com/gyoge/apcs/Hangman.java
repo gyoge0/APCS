@@ -1,9 +1,9 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JPanel;
 
 public class Hangman extends JPanel {
 
@@ -22,7 +22,9 @@ public class Hangman extends JPanel {
         reset(str);
     }
 
-    /** I forgot about spaces so this is just a helper method that adds them */
+    /**
+     * I forgot about spaces so this is just a helper method that adds them
+     */
     private void addSpaces() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < currString.length() - 1; i++) {
@@ -36,7 +38,9 @@ public class Hangman extends JPanel {
         currString = sb.toString();
     }
 
-    /** Removes the spaces so the logic works */
+    /**
+     * Removes the spaces so the logic works
+     */
     private void removeSpaces() {
         currString = currString.replace(" ", "");
     }
@@ -121,7 +125,7 @@ public class Hangman extends JPanel {
         int angle = 315;
         int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
         int start_y =
-                (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
+            (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
         int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
         int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);
@@ -132,7 +136,7 @@ public class Hangman extends JPanel {
         int angle = 225;
         int length = (int) ((TORSO_PERCENT / 2) * (getHeight() / 100.0));
         int start_y =
-                (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
+            (int) ((TOP_PERCENT + HEAD_PERCENT + TORSO_PERCENT / 4) * (getHeight() / 100.0));
         int end_x = (int) (midX + length * Math.cos(angle * Math.PI / 180));
         int end_y = (int) (start_y - length * Math.sin(angle * Math.PI / 180));
         g.drawLine(midX, start_y, end_x, end_y);

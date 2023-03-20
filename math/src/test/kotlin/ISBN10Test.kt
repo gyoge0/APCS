@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test
 
 class ISBN10Test : IOTest() {
 
-    @Test fun `test ISBN10 of 13601267`() {
+    @Test
+    fun `test ISBN10 of 13601267`() {
         ISBN10.testIsbn10(13601267)
 
         assertOutput(
@@ -16,7 +17,8 @@ class ISBN10Test : IOTest() {
         )
     }
 
-    @Test fun `test ISBN10 of 13031997`() {
+    @Test
+    fun `test ISBN10 of 13031997`() {
         ISBN10.testIsbn10(13031997)
 
         assertOutput(
@@ -27,7 +29,8 @@ class ISBN10Test : IOTest() {
         )
     }
 
-    @Test fun `test ISBN10 of 158939758`() {
+    @Test
+    fun `test ISBN10 of 158939758`() {
         ISBN10.testIsbn10(158939758)
 
         assertOutput(

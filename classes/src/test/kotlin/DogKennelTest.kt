@@ -5,7 +5,8 @@ import com.gyoge.apcs.dog.DogKennel
 import org.junit.jupiter.api.Test
 
 class DogKennelTest : IOTest() {
-    @Test fun `test kennel`() {
+    @Test
+    fun `test kennel`() {
         DogKennel.main(arrayOf())
 
         assertOutput(

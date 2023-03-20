@@ -11,6 +11,11 @@ import java.util.Scanner;
 @SuppressWarnings(value = {"SpellCheckingInspection"})
 public class PigLatin {
 
+    private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
+    @SuppressWarnings("SpellCheckingInspection")
+    private static final List<Character> VOWELSY = Arrays.asList('a', 'e', 'i', 'o', 'u', 'y');
+    private static final List<Character> PUNCTUATION = Arrays.asList('.', '!', '?', '"');
+
     public static void main(String[] args) {
         part_1_using_pig();
         // part_2_using_piglatenizeFile();
@@ -26,13 +31,6 @@ public class PigLatin {
             System.out.println(p);
         }
     }
-
-    private static final List<Character> VOWELS = Arrays.asList('a', 'e', 'i', 'o', 'u');
-
-    @SuppressWarnings("SpellCheckingInspection")
-    private static final List<Character> VOWELSY = Arrays.asList('a', 'e', 'i', 'o', 'u', 'y');
-
-    private static final List<Character> PUNCTUATION = Arrays.asList('.', '!', '?', '"');
 
     public static String pig(String str) {
         char last = str.charAt(str.length() - 1);

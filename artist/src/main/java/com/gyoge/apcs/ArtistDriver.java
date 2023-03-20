@@ -1,14 +1,14 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.Scanner;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 
 public class ArtistDriver {
 

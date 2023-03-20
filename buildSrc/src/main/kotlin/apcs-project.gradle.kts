@@ -53,8 +53,6 @@ spotless {
         toggleOffOn()
 
         licenseHeader("// Yogesh Thambidurai APCS 2022-23")
-
-        googleJavaFormat().aosp()
     }
     kotlin {
         ktlint()

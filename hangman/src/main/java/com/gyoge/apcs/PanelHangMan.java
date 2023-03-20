@@ -1,6 +1,9 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -9,9 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 @SuppressWarnings("all")
 public class PanelHangMan extends JPanel implements KeyListener {
@@ -68,7 +68,9 @@ public class PanelHangMan extends JPanel implements KeyListener {
         myWordLabel.setText(myHangman.getString());
     }
 
-    /** Handle the key pressed event from the text field. */
+    /**
+     * Handle the key pressed event from the text field.
+     */
     public void keyPressed(KeyEvent e) {
         /*
         int keyCode = e.getKeyCode();
@@ -76,8 +78,11 @@ public class PanelHangMan extends JPanel implements KeyListener {
         */
     }
 
-    /** Handle the key released event from the text field. */
-    public void keyReleased(KeyEvent e) {}
+    /**
+     * Handle the key released event from the text field.
+     */
+    public void keyReleased(KeyEvent e) {
+    }
 
     private void displayInfo(KeyEvent e, String keyStatus) {
 

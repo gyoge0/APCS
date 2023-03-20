@@ -11,49 +11,6 @@ package finch;
 public class Microbit extends Robot {
 
     /**
-     * This function tries to read sensor 4 (the finch.Hummingbird battery) to determine whether the
-     * device is a finch.Hummingbird or a micro:bit. It returns true if the device is a micro:bit.
-     */
-    private boolean isMicrobit() {
-        StringBuilder newURL = new StringBuilder(baseUrl);
-        String testURL = (newURL.append("in/isMicrobit/static/").append(deviceInstance)).toString();
-
-        String stringResponse = sendHttpRequest(testURL);
-        if (stringResponse.equals("false")) {
-            System.out.println("Error: Device " + deviceInstance + " is not a finch.Microbit");
-            return false;
-        } else if (stringResponse.equals("Not Connected")) {
-            System.out.println("Error: Device " + deviceInstance + " is not connected.");
-            return false;
-        } else {
-            return true;
-        }
-        /*
-          	try {
-           	StringBuilder newURL = new StringBuilder(baseUrl);
-               String testURL = (newURL.append("in/")
-                       .append("sensor/4/")
-                       .append(deviceInstance)).toString();
-
-              requestUrl = new URL(testURL);
-              connection = (HttpURLConnection) requestUrl.openConnection();
-              connection.setRequestMethod("GET");
-              connection.setDoOutput(true);
-
-              String stringResponse = verifyResponse();
-              if (stringResponse.equals("255")) return true;
-              else {
-           	   System.out.println("Error: Device "+deviceInstance+" is not a micro:bit");
-           	   return false;
-              }
-        } catch (IOException e) {
-              System.out.println("Error: Device " + deviceInstance + " is not connected");
-              return false;
-          }
-          	*/
-    }
-
-    /**
      * default constructor for the library. Construct the baseUrl and set the default device to be A
      */
     public Microbit() {
@@ -76,5 +33,48 @@ public class Microbit extends Robot {
             if (!isConnectionValid()) System.exit(0);
             if (!isMicrobit()) System.exit(0);
         }
+    }
+
+    /**
+     * This function tries to read sensor 4 (the finch.Hummingbird battery) to determine whether the
+     * device is a finch.Hummingbird or a micro:bit. It returns true if the device is a micro:bit.
+     */
+    private boolean isMicrobit() {
+        StringBuilder newURL = new StringBuilder(baseUrl);
+        String testURL = (newURL.append("in/isMicrobit/static/").append(deviceInstance)).toString();
+
+        String stringResponse = sendHttpRequest(testURL);
+        if (stringResponse.equals("false")) {
+            System.out.println("Error: Device " + deviceInstance + " is not a finch.Microbit");
+            return false;
+        } else if (stringResponse.equals("Not Connected")) {
+            System.out.println("Error: Device " + deviceInstance + " is not connected.");
+            return false;
+        } else {
+            return true;
+        }
+        /*
+              try {
+               StringBuilder newURL = new StringBuilder(baseUrl);
+               String testURL = (newURL.append("in/")
+                       .append("sensor/4/")
+                       .append(deviceInstance)).toString();
+
+              requestUrl = new URL(testURL);
+              connection = (HttpURLConnection) requestUrl.openConnection();
+              connection.setRequestMethod("GET");
+              connection.setDoOutput(true);
+
+              String stringResponse = verifyResponse();
+              if (stringResponse.equals("255")) return true;
+              else {
+                  System.out.println("Error: Device "+deviceInstance+" is not a micro:bit");
+                  return false;
+              }
+        } catch (IOException e) {
+              System.out.println("Error: Device " + deviceInstance + " is not connected");
+              return false;
+          }
+              */
     }
 }

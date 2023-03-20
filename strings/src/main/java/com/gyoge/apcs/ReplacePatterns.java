@@ -30,14 +30,16 @@ public class ReplacePatterns {
     }
 
     public static void verify_replacePattern(
-            String str, String findStr, String replaceStr, String expectedStr) {
+        String str, String findStr, String replaceStr, String expectedStr
+    ) {
         String retStr = replacePattern(str, findStr, replaceStr);
         String result = "fail";
         if (retStr.equals(expectedStr)) result = "pass";
 
         System.out.printf(
-                "%s: replacePattern(%s, %s, %s) => %s\n",
-                result, str, findStr, replaceStr, expectedStr);
+            "%s: replacePattern(%s, %s, %s) => %s\n",
+            result, str, findStr, replaceStr, expectedStr
+        );
     }
 
     @SuppressWarnings("SpellCheckingInspection")
@@ -47,9 +49,10 @@ public class ReplacePatterns {
         verify_replacePattern("Mississippi", "iss", "us", "Mususippi");
         verify_replacePattern("Mississippi", "i", "ae", "Maessaessaeppae");
         verify_replacePattern(
-                "the effervescence in the teleconference was electrogeneses",
-                "e",
-                "a",
-                "tha affarvascanca in tha talaconfaranca was alactroganasas");
+            "the effervescence in the teleconference was electrogeneses",
+            "e",
+            "a",
+            "tha affarvascanca in tha talaconfaranca was alactroganasas"
+        );
     }
 }

@@ -1,9 +1,9 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs;
 
+import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
 
 public class ArtistPanel extends JPanel {
 

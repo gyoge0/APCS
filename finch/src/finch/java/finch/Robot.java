@@ -16,13 +16,6 @@ import java.net.URL;
  * <p>Mike Yuan and Bambi Breewer, BirdBrain Technologies LLC November 2018
  */
 abstract class Robot {
-    // Variables used to make http request to control the micro:bit (and finch.Hummingbird Bit)
-    protected HttpURLConnection connection = null;
-    protected static String baseUrl = "http://127.0.0.1:30061/hummingbird/";
-    protected URL requestUrl;
-
-    protected String deviceInstance; // A, B, or C
-
     // String variables used to return the orientation of the micro:bit
     private static final String SCREEN_UP = "Screen%20Up";
     private static final String SCREEN_DOWN = "Screen%20Down";
@@ -31,15 +24,17 @@ abstract class Robot {
     private static final String LOGO_UP = "Logo%20Up";
     private static final String LOGO_DOWN = "Logo%20Down";
     private static final String SHAKE = "Shake";
-
-    private String outputError = "Error: Could not set output on the device ";
-    private String inputError = "Error: Could not read sensor on the device ";
-
+    protected static String baseUrl = "http://127.0.0.1:30061/hummingbird/";
+    // Variables used to make http request to control the micro:bit (and finch.Hummingbird Bit)
+    protected HttpURLConnection connection = null;
+    protected URL requestUrl;
+    protected String deviceInstance; // A, B, or C
     protected boolean[] displayStatus = new boolean[25];
-
     protected String magRequest = "Magnetometer";
     protected String accelRequest = "Accelerometer";
     protected String compassRequest = "Compass";
+    private String outputError = "Error: Could not set output on the device ";
+    private String inputError = "Error: Could not read sensor on the device ";
 
     /* This function tests a connection by attempting to read whether or not the micro:bit is shaking.
      * Return true if the connection is good and false otherwise.
@@ -48,11 +43,11 @@ abstract class Robot {
 
         StringBuilder newURL = new StringBuilder(baseUrl);
         String testURL =
-                (newURL.append("in/")
-                                .append("orientation/")
-                                .append(SHAKE + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (newURL.append("in/")
+                .append("orientation/")
+                .append(SHAKE + "/")
+                .append(deviceInstance))
+                .toString();
 
         String stringResponse = sendHttpRequest(testURL);
         if (stringResponse.equals("Not Connected")) {
@@ -68,7 +63,7 @@ abstract class Robot {
     protected int clampParameterToBounds(int parameter, int inputMin, int inputMax) {
         if ((parameter < inputMin) || (parameter > inputMax)) {
             System.out.println(
-                    "Warning: Please choose a parameter between " + inputMin + " and " + inputMax);
+                "Warning: Please choose a parameter between " + inputMin + " and " + inputMax);
             return Math.max(inputMin, Math.min(inputMax, parameter));
         } else return parameter;
     }
@@ -79,7 +74,7 @@ abstract class Robot {
     protected double clampParameterToBounds(double parameter, double inputMin, double inputMax) {
         if ((parameter < inputMin) || (parameter > inputMax)) {
             System.out.println(
-                    "Warning: Please choose a parameter between " + inputMin + " and " + inputMax);
+                "Warning: Please choose a parameter between " + inputMin + " and " + inputMax);
             return Math.max(inputMin, Math.min(inputMax, parameter));
         } else return parameter;
     }
@@ -117,7 +112,7 @@ abstract class Robot {
             int responseCode = connection.getResponseCode();
             if (responseCode == 200) {
                 BufferedReader in =
-                        new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
                 StringBuffer response = new StringBuffer();
 
@@ -143,7 +138,8 @@ abstract class Robot {
         }
         // If too many requests get sent too quickly, macOS gets overwhelmed and starts to insert
         // pauses.
-        while (System.currentTimeMillis() < requestStartTime + 5) {}
+        while (System.currentTimeMillis() < requestStartTime + 5) {
+        }
 
         return responseString;
     }
@@ -190,11 +186,11 @@ abstract class Robot {
         for (int i = 0; i < message.length(); i++) {
             letter = message.charAt(i);
             if (!(((letter >= 'a') && (letter <= 'z'))
-                    || ((letter >= 'A') && (letter <= 'Z'))
-                    || ((letter >= '0') && (letter <= '9'))
-                    || (letter == ' '))) {
+                  || ((letter >= 'A') && (letter <= 'Z'))
+                  || ((letter >= '0') && (letter <= '9'))
+                  || (letter == ' '))) {
                 System.out.println(
-                        "Warning: Many special characters cannot be printed on the LED display");
+                    "Warning: Many special characters cannot be printed on the LED display");
             }
         }
         for (int i = 0; i < displayStatus.length; i++) displayStatus[i] = false;
@@ -205,12 +201,12 @@ abstract class Robot {
         // Build http request
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String printUrl =
-                (resultUrl
-                                .append("out/")
-                                .append("print/")
-                                .append(message + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("out/")
+                .append("print/")
+                .append(message + "/")
+                .append(deviceInstance))
+                .toString();
         httpRequestOut(printUrl);
     }
 
@@ -218,7 +214,7 @@ abstract class Robot {
      * setDisplay lets the LED Array display a pattern based on an array of 1s and 0s.
      *
      * @param ledValues The list of integers that the function takes in to set the LED Array. 1
-     *     means on and 0 means off.
+     *                  means on and 0 means off.
      */
     public void setDisplay(int[] ledValues) {
         StringBuilder resultUrl = new StringBuilder(baseUrl);
@@ -242,7 +238,7 @@ abstract class Robot {
         }
 
         resultUrl =
-                resultUrl.append("out/").append("symbol/").append(deviceInstance.toString() + "/");
+            resultUrl.append("out/").append("symbol/").append(deviceInstance.toString() + "/");
 
         for (int i = 0; i < ledLen; i++) {
             resultUrl = resultUrl.append(String.valueOf(displayStatus[i]) + "/");
@@ -276,7 +272,7 @@ abstract class Robot {
         else displayStatus[position] = false;
 
         resultUrl =
-                resultUrl.append("out/").append("symbol/").append(deviceInstance.toString() + "/");
+            resultUrl.append("out/").append("symbol/").append(deviceInstance.toString() + "/");
 
         for (int i = 0; i < displayStatus.length; i++) {
             resultUrl = resultUrl.append(String.valueOf(displayStatus[i]) + "/");
@@ -291,7 +287,7 @@ abstract class Robot {
     /**
      * Set the buzzer to play the given note for the given duration
      *
-     * @param note - midi note number to play (Range: 32 to 135)
+     * @param note  - midi note number to play (Range: 32 to 135)
      * @param beats - duration in beats (Range: 0 to 16); each beat is one second
      */
     public void playNote(int note, double beats) {
@@ -315,12 +311,12 @@ abstract class Robot {
 
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String acclUrl =
-                (resultUrl
-                                .append("in/")
-                                .append(accelRequest + "/")
-                                .append(dir + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("in/")
+                .append(accelRequest + "/")
+                .append(dir + "/")
+                .append(deviceInstance))
+                .toString();
 
         return httpRequestInDouble(acclUrl);
     }
@@ -333,12 +329,12 @@ abstract class Robot {
     private double getMagnetometerValInDirs(String dir) {
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String magUrl =
-                (resultUrl
-                                .append("in/")
-                                .append(magRequest + "/")
-                                .append(dir + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("in/")
+                .append(magRequest + "/")
+                .append(dir + "/")
+                .append(deviceInstance))
+                .toString();
 
         return httpRequestInDouble(magUrl);
     }
@@ -384,8 +380,8 @@ abstract class Robot {
 
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String compassUrl =
-                (resultUrl.append("in/").append(compassRequest + "/").append(deviceInstance))
-                        .toString();
+            (resultUrl.append("in/").append(compassRequest + "/").append(deviceInstance))
+                .toString();
 
         return (int) httpRequestInDouble(compassUrl);
     }
@@ -406,12 +402,12 @@ abstract class Robot {
 
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String buttonUrl =
-                (resultUrl
-                                .append("in/")
-                                .append("button/")
-                                .append(button + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("in/")
+                .append("button/")
+                .append(button + "/")
+                .append(deviceInstance))
+                .toString();
 
         return httpRequestInBoolean(buttonUrl);
     }
@@ -424,8 +420,8 @@ abstract class Robot {
     public int getSound() {
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String soundUrl =
-                (resultUrl.append("in/").append("V2sensor/Sound/").append(deviceInstance))
-                        .toString();
+            (resultUrl.append("in/").append("V2sensor/Sound/").append(deviceInstance))
+                .toString();
 
         return (int) Math.round(httpRequestInDouble(soundUrl));
     }
@@ -439,8 +435,8 @@ abstract class Robot {
     public int getTemperature() {
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String tempUrl =
-                (resultUrl.append("in/").append("V2sensor/Temperature/").append(deviceInstance))
-                        .toString();
+            (resultUrl.append("in/").append("V2sensor/Temperature/").append(deviceInstance))
+                .toString();
 
         return (int) Math.round(httpRequestInDouble(tempUrl));
     }
@@ -456,12 +452,12 @@ abstract class Robot {
 
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String orientationUrl =
-                (resultUrl
-                                .append("in/")
-                                .append("orientation/")
-                                .append(orientation + "/")
-                                .append(deviceInstance))
-                        .toString();
+            (resultUrl
+                .append("in/")
+                .append("orientation/")
+                .append(orientation + "/")
+                .append(deviceInstance))
+                .toString();
 
         return httpRequestInBoolean(orientationUrl);
     }
@@ -473,11 +469,12 @@ abstract class Robot {
     public boolean isShaking() {
         return getOrientationBoolean(SHAKE);
     }
+
     /**
      * getOrientation() provides information about the device's current orientation.
      *
      * @return the orientation of the device. (Range: Screen up, Screen down, Tilt left, Tilt right,
-     *     Logo up, Logo down)
+     * Logo up, Logo down)
      */
     public String getOrientation() {
         boolean screenUp = getOrientationBoolean(SCREEN_UP);
@@ -507,13 +504,16 @@ abstract class Robot {
         }
     }
 
-    /** disconnect closes the http connection to save memory */
+    /**
+     * disconnect closes the http connection to save memory
+     */
     public void disconnect() {
         if (connection != null) {
             connection.disconnect();
             connection = null;
         }
     }
+
     /* stopAll() turns off all the outputs. */
     public void stopAll() {
 
@@ -522,7 +522,7 @@ abstract class Robot {
         // Build http request to turn off all the outputs
         StringBuilder resultUrl = new StringBuilder(baseUrl);
         String stopUrl =
-                (resultUrl.append("out/").append("stopall/").append(deviceInstance)).toString();
+            (resultUrl.append("out/").append("stopall/").append(deviceInstance)).toString();
 
         httpRequestOut(stopUrl);
 

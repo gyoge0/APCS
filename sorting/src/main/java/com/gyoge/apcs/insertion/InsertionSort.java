@@ -11,6 +11,12 @@ public class InsertionSort implements Runnable {
         panel = aPanel;
     }
 
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
     public void run() {
         for (int i = 1; i < sortArray.length; i++) {
             int j = i;
@@ -20,11 +26,5 @@ public class InsertionSort implements Runnable {
                 panel.updateArray(sortArray);
             }
         }
-    }
-
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
     }
 }

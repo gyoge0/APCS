@@ -34,7 +34,6 @@ public class StoreProduct {
         this.stock = stock;
     }
 
-    // spotless:off
     public StoreProduct(
         String label,
         int price,
@@ -48,7 +47,6 @@ public class StoreProduct {
         this.hasExpiration = hasExpiration;
         this.stock = stock;
     }
-    // spotless:on
 
     public String getLabel() {
         return label;

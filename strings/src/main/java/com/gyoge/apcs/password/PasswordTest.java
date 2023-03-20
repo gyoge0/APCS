@@ -1,7 +1,9 @@
 // Yogesh Thambidurai APCS 2022-23
 package com.gyoge.apcs.password;
 
-/** Tester file used in the lab */
+/**
+ * Tester file used in the lab
+ */
 @SuppressWarnings("SpellCheckingInspection")
 class PasswordTest {
 

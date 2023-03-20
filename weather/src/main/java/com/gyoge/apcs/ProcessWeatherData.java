@@ -2,6 +2,7 @@
 package com.gyoge.apcs;
 
 import core.data.DataSource;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,8 @@ public class ProcessWeatherData {
                 "station/state",
                 "station/latitude",
                 "station/longitude",
-                "station/xml_url");
+                "station/xml_url"
+            );
         System.out.println("Total stations: " + allStations.size());
 
         Scanner sc = new Scanner(System.in);
@@ -65,7 +67,8 @@ public class ProcessWeatherData {
                 station ->
                     System.out.printf(
                         "Northernmost station is: %s at %s%n",
-                        station.getName(), station.getLat()));
+                        station.getName(), station.getLat()
+                    ));
 
         stateStations.stream()
             .min(Comparator.comparingDouble(WeatherStation::getLat))
@@ -73,7 +76,8 @@ public class ProcessWeatherData {
                 station ->
                     System.out.printf(
                         "Southernmost station is: %s at %s%n",
-                        station.getName(), station.getLat()));
+                        station.getName(), station.getLat()
+                    ));
 
         List<Double> temps =
             stateStations.stream()
