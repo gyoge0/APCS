@@ -19,4 +19,8 @@
 **/.gradle/
 
 # ide files
-**/.idea
+.idea
+!.idea/compiler.xml
+!.idea/gradle.xml
+!.idea/vcs.xml
+!.idea/kotlinc.xml

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/buildSrc" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/common" name="common">
+                <projects>
+                  <project path="$PROJECT_DIR$/common" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/2d-array" />
+            <option value="$PROJECT_DIR$/arraylists" />
+            <option value="$PROJECT_DIR$/arrays" />
+            <option value="$PROJECT_DIR$/artist" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/classes" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/connect-points" />
+            <option value="$PROJECT_DIR$/data-structures" />
+            <option value="$PROJECT_DIR$/declaration-of-independence" />
+            <option value="$PROJECT_DIR$/dog-class" />
+            <option value="$PROJECT_DIR$/emergency-room" />
+            <option value="$PROJECT_DIR$/falling-sand" />
+            <option value="$PROJECT_DIR$/finch" />
+            <option value="$PROJECT_DIR$/hangman" />
+            <option value="$PROJECT_DIR$/hawaiian" />
+            <option value="$PROJECT_DIR$/heat-map" />
+            <option value="$PROJECT_DIR$/math" />
+            <option value="$PROJECT_DIR$/moving-shapes" />
+            <option value="$PROJECT_DIR$/recursion" />
+            <option value="$PROJECT_DIR$/rock-paper-scissors" />
+            <option value="$PROJECT_DIR$/searching" />
+            <option value="$PROJECT_DIR$/sorting" />
+            <option value="$PROJECT_DIR$/strings" />
+            <option value="$PROJECT_DIR$/weather" />
+            <option value="$PROJECT_DIR$/whiteboarding" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
