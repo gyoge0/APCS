@@ -11,7 +11,6 @@ plugins {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("com.gyoge.apcs:common")
 }
 
 group = "com.gyoge.apcs"
