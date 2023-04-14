@@ -1,5 +1,4 @@
-includeBuild("common")
-
+include("common")
 include("classes")
 include("math")
 include("whiteboarding")
