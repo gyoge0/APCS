@@ -92,7 +92,7 @@ public class HashMap<K, V> {
     }
 
     public V put(K key, V value) {
-        int bucket = key.hashCode() % buckets.length;
+        int bucket = Math.abs(key.hashCode()) % buckets.length;
         if (buckets[bucket] == null) {
             buckets[bucket] = new LinkedList<>();
         }
